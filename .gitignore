@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Screenshots / build artifacts
+screenshot.png
+screenshot_hero.png
+hero-1080.png
+
+# Editor
+.vscode/
+*.swp

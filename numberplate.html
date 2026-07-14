@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudioPlated — Custom Number Plates for Room Décor</title>
+  <meta name="description"
+    content="Order personalised number plates for your bedroom, studio, or man cave. Starting ₹799. Any text, any style. Order on WhatsApp." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Anton&family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ── Number plate base ── */
+    .plate {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 7px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0, 0, 0, 0.3);
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    /* Classic white */
+    .plate-white {
+      background: #f4f2ec;
+      border: 3px solid #1a1a1a;
+    }
+
+    .plate-white .ind {
+      background: #003090;
+      color: white;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 0.5px;
+      padding: 5px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      align-self: stretch;
+      border-right: 2px solid #1a1a1a;
+      line-height: 1.3;
+    }
+
+    .plate-white .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 5px;
+      padding: 10px 18px;
+      line-height: 1;
+    }
+
+    /* Midnight black */
+    .plate-black {
+      background: #111;
+      border: 3px solid #444;
+    }
+
+    .plate-black .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
+
+    /* Vintage amber */
+    .plate-vintage {
+      background: #c8860a;
+      border: 4px solid #8b5e0a;
+      position: relative;
+    }
+
+    .plate-vintage::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .plate-vintage .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #1a0800;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
+
+    /* Royal navy */
+    .plate-navy {
+      background: #0f1e3d;
+      border: 3px solid #1e3a6e;
+    }
+
+    .plate-navy .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+      text-shadow: 0 0 18px rgba(255, 215, 0, 0.45);
+    }
+
+    /* Arizona red */
+    .plate-red { background: #b91c1c; border: 4px solid #7f1d1d; }
+    .plate-red .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#f5f5f5; letter-spacing:5px; padding:10px 22px; line-height:1; }
+
+    /* Florida teal */
+    .plate-teal { background: #0d6b8a; border: 3px solid #084f66; }
+    .plate-teal .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#e8e8e8; letter-spacing:5px; padding:10px 22px; line-height:1; }
+
+    /* Yellow classic */
+    .plate-yellow { background: #eab308; border: 3px solid #a16207; }
+    .plate-yellow .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#1a1a1a; letter-spacing:5px; padding:10px 22px; line-height:1; }
+
+    /* Forest green */
+    .plate-green { background: #166534; border: 3px solid #14532d; }
+    .plate-green .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#f0fdf4; letter-spacing:5px; padding:10px 22px; line-height:1; }
+
+    /* Burnt orange */
+    .plate-orange { background: #c2410c; border: 3px solid #9a3412; }
+    .plate-orange .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#fff7ed; letter-spacing:5px; padding:10px 22px; line-height:1; }
+
+    /* ── Floating hero animation ── */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1.5deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(-1.5deg);
+      }
+    }
+
+    .plate-float {
+      animation: float 3.8s ease-in-out infinite;
+    }
+
+    /* ── Ticker ── */
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-inner {
+      display: flex;
+      width: max-content;
+      animation: ticker 30s linear infinite;
+    }
+
+    /* ── WhatsApp button ── */
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(37, 211, 102, 0.5);
+      background: #1ebe5d;
+    }
+
+    /* ── Gold gradient text ── */
+    .text-gold {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Dot grid ── */
+    .dot-grid {
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+
+    /* ── Style card ── */
+    .style-card {
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .style-card:hover {
+      transform: translateY(-6px);
+    }
+
+    /* ── FAQ accordion ── */
+    details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details[open] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-icon {
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    /* ── Hero background orbs ── */
+    @keyframes orb-drift-a {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(35px, -25px) scale(1.06); }
+    }
+
+    @keyframes orb-drift-b {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-45px, 30px) scale(0.94); }
+    }
+
+    @keyframes orb-drift-c {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(20px, 15px); }
+      66% { transform: translate(-20px, -10px); }
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(90px);
+    }
+
+    .hero-orb-gold {
+      width: 750px;
+      height: 750px;
+      background: radial-gradient(circle, rgba(255, 200, 30, 0.1) 0%, transparent 70%);
+      top: -250px;
+      left: -120px;
+      animation: orb-drift-a 16s ease-in-out infinite;
+    }
+
+    .hero-orb-blue {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(60, 120, 255, 0.08) 0%, transparent 70%);
+      top: -60px;
+      right: -100px;
+      animation: orb-drift-b 20s ease-in-out infinite;
+    }
+
+    .hero-orb-red {
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(200, 40, 40, 0.06) 0%, transparent 70%);
+      bottom: -80px;
+      left: 35%;
+      animation: orb-drift-c 25s ease-in-out infinite;
+    }
+
+    /* ── StudioPlated nav logo animations ── */
+    @keyframes brand-zoom-in {
+      from { opacity: 0; transform: scale(0.55) translateY(5px); }
+      to   { opacity: 1; transform: scale(1)    translateY(0); }
+    }
+    @keyframes brand-float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-4px); }
+    }
+    @keyframes icon-pop {
+      0%   { opacity: 0; transform: scale(0) rotate(-15deg); }
+      70%  { transform: scale(1.18) rotate(4deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    .brand-icon { animation: icon-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.05s both; }
+    .brand-name {
+      animation: brand-zoom-in 0.55s cubic-bezier(0.22,1,0.36,1) 0.18s both,
+                 brand-float   3.6s  ease-in-out 0.75s infinite;
+    }
+
+    /* ── Hero entrance animations ── */
+    @keyframes zoom-reveal {
+      from { opacity: 0; transform: scale(0.84); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes headline-zoom {
+      from { opacity: 0; transform: scale(0.72) translateY(6px); }
+      to   { opacity: 1; transform: scale(1)    translateY(0); }
+    }
+    @keyframes plate-spring-in {
+      0%   { opacity: 0; transform: scale(0.82) translateY(40px); }
+      65%  { transform: scale(1.03) translateY(-5px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Elements start invisible; JS adds .js-anim class to html to trigger staggered reveals */
+    .js-anim .anim-in { opacity: 0; }
+    .js-anim .anim-in.a1 { animation: zoom-reveal     0.6s  0.05s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in.a2 { animation: headline-zoom   0.75s 0.15s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in.a3 { animation: headline-zoom   0.75s 0.25s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in.a4 { animation: plate-spring-in 0.9s  0.4s  cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in.a5 { animation: zoom-reveal     0.65s 0.58s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in.a6 { animation: zoom-reveal     0.65s 0.7s  cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in.a7 { animation: zoom-reveal     0.55s 0.82s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+    /* ── Gallery background plates ── */
+    @keyframes gp-drift-a {
+      0%,100% { transform: rotate(-12deg) translate(0,0); }
+      30%  { transform: rotate(-14deg) translate(14px,-20px); }
+      65%  { transform: rotate(-10deg) translate(-9px,13px); }
+    }
+    @keyframes gp-drift-b {
+      0%,100% { transform: rotate(16deg) translate(0,0); }
+      40%  { transform: rotate(18deg) translate(-16px,-13px); }
+      70%  { transform: rotate(14deg) translate(11px,17px); }
+    }
+    @keyframes gp-drift-c {
+      0%,100% { transform: rotate(-7deg) translate(0,0); }
+      25%  { transform: rotate(-9deg) translate(11px,-24px); }
+      75%  { transform: rotate(-5deg) translate(-13px,10px); }
+    }
+    @keyframes gp-drift-d {
+      0%,100% { transform: rotate(11deg) translate(0,0); }
+      45%  { transform: rotate(9deg) translate(-13px,-16px); }
+      80%  { transform: rotate(13deg) translate(9px,19px); }
+    }
+    @keyframes gp-drift-e {
+      0%,100% { transform: rotate(-20deg) translate(0,0); }
+      50%  { transform: rotate(-22deg) translate(22px,-12px); }
+    }
+    @keyframes gp-drift-f {
+      0%,100% { transform: rotate(23deg) translate(0,0); }
+      50%  { transform: rotate(21deg) translate(-19px,9px); }
+    }
+
+    @keyframes gp-drift-g {
+      0%,100% { transform: rotate(5deg) translate(0,0); }
+      50%  { transform: rotate(7deg) translate(-10px,-18px); }
+    }
+    @keyframes gp-drift-h {
+      0%,100% { transform: rotate(-15deg) translate(0,0); }
+      50%  { transform: rotate(-13deg) translate(15px,14px); }
+    }
+
+    .gp { position: absolute; pointer-events: none; }
+    /* Edges — more visible */
+    .gp-1  { top:3%;     left:1%;    opacity:0.22; animation: gp-drift-a 16s ease-in-out infinite; }
+    .gp-2  { top:5%;     right:2%;   opacity:0.24; animation: gp-drift-b 20s ease-in-out infinite; }
+    .gp-3  { bottom:15%; left:3%;    opacity:0.22; animation: gp-drift-c 18s ease-in-out infinite; }
+    .gp-4  { bottom:10%; right:5%;   opacity:0.24; animation: gp-drift-d 22s ease-in-out infinite; }
+    .gp-5  { top:38%;    left:-2%;   opacity:0.18; animation: gp-drift-e 23s ease-in-out infinite; }
+    .gp-6  { top:44%;    right:-1%;  opacity:0.2;  animation: gp-drift-f 19s ease-in-out infinite; }
+    /* Upper band */
+    .gp-7  { top:2%;     left:28%;   opacity:0.18; animation: gp-drift-g 21s ease-in-out infinite; }
+    .gp-8  { top:4%;     right:25%;  opacity:0.2;  animation: gp-drift-h 17s ease-in-out infinite; }
+    /* Lower band */
+    .gp-9  { bottom:8%;  left:22%;   opacity:0.2;  animation: gp-drift-b 24s ease-in-out infinite reverse; }
+    .gp-10 { bottom:6%;  right:20%;  opacity:0.18; animation: gp-drift-a 20s ease-in-out infinite reverse; }
+    /* Mid-frame — faint / blurred */
+    .gp-11 { top:18%;    left:14%;   opacity:0.1;  filter:blur(1px); animation: gp-drift-c 26s ease-in-out infinite; }
+    .gp-12 { top:16%;    right:12%;  opacity:0.1;  filter:blur(1px); animation: gp-drift-d 30s ease-in-out infinite; }
+    .gp-13 { bottom:25%; left:18%;   opacity:0.09; filter:blur(1.5px); animation: gp-drift-g 28s ease-in-out infinite reverse; }
+    .gp-14 { bottom:22%; right:16%;  opacity:0.09; filter:blur(1.5px); animation: gp-drift-h 22s ease-in-out infinite reverse; }
+    /* Deep background — very faint */
+    .gp-15 { top:30%;    left:38%;   opacity:0.06; filter:blur(2.5px); animation: gp-drift-e 34s ease-in-out infinite; }
+    .gp-16 { bottom:38%; right:35%;  opacity:0.06; filter:blur(2.5px); animation: gp-drift-f 38s ease-in-out infinite reverse; }
+
+    /* ── Gold particles ── */
+    @keyframes particle-rise {
+      0% { transform: translateY(0) scale(0); opacity: 0; }
+      15% { opacity: 0.9; transform: translateY(-12px) scale(1); }
+      80% { opacity: 0.35; }
+      100% { transform: translateY(-200px) scale(0); opacity: 0; }
+    }
+
+    .gold-particle {
+      position: absolute;
+      background: #FFD700;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particle-rise ease-in infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0d0d0d] text-white antialiased">
+
+  <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/[0.06]">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="brand-icon w-8 h-8 rounded-md flex items-center justify-center" style="background:#FFD700;">
+          <span style="font-family:'Anton',sans-serif; color:#0d0d0d; font-size:16px; line-height:1;">S</span>
+        </div>
+        <span class="brand-name font-bold text-white text-lg tracking-tight">StudioPlated</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-6 text-sm text-gray-400 font-medium">
+        <a href="#styles" class="hover:text-white transition-colors">Styles</a>
+        <a href="#how" class="hover:text-white transition-colors">How it works</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+      </div>
+      <a href="https://wa.me/918356850938?text=Hi!%20I%20want%20to%20order%20a%20custom%20number%20plate.%20Please%20help%20me%20with%20the%20details."
+        target="_blank" rel="noopener" class="btn-wa px-5 py-2.5 text-sm">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="white">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        Order Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-5 pt-24 pb-20 relative overflow-hidden"
+    style="background:#0a0a0a;">
+
+    <!-- Photo mosaic background -->
+    <div class="absolute inset-0 pointer-events-none" id="hero-photo-bg" style="display:none; transition:opacity 0.5s;">
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:1.1fr 1fr 0.9fr;height:100%;gap:2px;">
+        <div style="overflow:hidden;"><img src="hero-bg-1.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div style="overflow:hidden;"><img src="hero-bg-4.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" /></div>
+        <div style="overflow:hidden;"><img src="hero-bg-3.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+      </div>
+      <!-- Dark overlay -->
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.76);"></div>
+      <!-- Center glow so text area is slightly brighter -->
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);"></div>
+    </div>
+    <!-- Fallback gradient until images load -->
+    <div class="absolute inset-0 pointer-events-none" id="hero-fallback-bg"
+      style="background:linear-gradient(155deg,#08111f 0%,#0b0d15 45%,#110808 100%); transition:opacity 0.5s;"></div>
+
+    <!-- Dot grid overlay -->
+    <div class="absolute inset-0 dot-grid" style="opacity:0.3;"></div>
+
+    <!-- Gold hairline across top -->
+    <div class="absolute top-0 inset-x-0 h-[2px]"
+      style="background:linear-gradient(to right, transparent 5%, #FFD700 35%, #FF8C00 65%, transparent 95%); opacity:0.7;"></div>
+
+    <!-- Floating particles -->
+    <div id="hero-particles" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
+
+
+    <div class="relative z-10 max-w-5xl mx-auto w-full">
+
+      <!-- Eyebrow -->
+      <div class="anim-in a1 inline-flex items-center gap-3 mb-6">
+        <div class="h-px w-12" style="background:linear-gradient(to right, transparent, #FFD700);"></div>
+        <span class="text-[11px] font-bold tracking-[5px] uppercase" style="color:#FFD700;">Handcrafted · Made in India · Room Décor</span>
+        <div class="h-px w-12" style="background:linear-gradient(to left, transparent, #FFD700);"></div>
+      </div>
+
+      <!-- Headline — Anton font for max impact -->
+      <div class="anim-in a2">
+        <h1 style="font-family:'Anton',sans-serif; font-size:clamp(4.5rem,14vw,11rem); line-height:0.84; letter-spacing:2px;" class="text-white">YOUR NAME.</h1>
+      </div>
+      <div class="anim-in a3 mb-10">
+        <h1 style="font-family:'Anton',sans-serif; font-size:clamp(4.5rem,14vw,11rem); line-height:0.84; letter-spacing:2px; background:linear-gradient(135deg,#FFD700 0%,#FF5F00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">YOUR PLATE.</h1>
+      </div>
+
+      <!-- Three plates at different angles -->
+      <div class="anim-in a4 relative flex justify-center items-center mb-12" style="height:clamp(160px,25vw,260px);">
+        <!-- Glow halo behind plates -->
+        <div class="absolute inset-0 pointer-events-none"
+          style="background:radial-gradient(ellipse at center, rgba(255,215,0,0.1) 0%, transparent 52%);"></div>
+
+        <!-- Left plate: Royal Navy, tilted left -->
+        <div style="position:absolute; transform:rotate(-9deg) translateX(clamp(-155px,-19vw,-90px)) translateY(16px); z-index:1; opacity:0.82;">
+          <div class="plate plate-navy" style="box-shadow:0 20px 60px rgba(0,0,0,0.95);">
+            <div class="pt" style="font-size:clamp(17px,3vw,30px); padding:clamp(8px,1.3vw,13px) clamp(12px,2vw,22px);">KING · 18</div>
+          </div>
+        </div>
+
+        <!-- Centre plate: Classic White, floating -->
+        <div class="plate-float" style="position:relative; z-index:3; transform:rotate(-2.5deg);">
+          <div class="plate plate-white" style="box-shadow:0 30px 90px rgba(0,0,0,0.98), 0 0 60px rgba(255,215,0,0.12);">
+            <div class="ind"><span style="font-size:15px;">🇮🇳</span><span>IND</span></div>
+            <div class="pt" style="font-size:clamp(24px,4.5vw,44px); padding:clamp(9px,1.5vw,14px) clamp(14px,2vw,20px);">YOUR · NAME</div>
+          </div>
+        </div>
+
+        <!-- Right plate: Midnight Black, tilted right -->
+        <div style="position:absolute; transform:rotate(8deg) translateX(clamp(90px,19vw,155px)) translateY(8px); z-index:2; opacity:0.86;">
+          <div class="plate plate-black" style="box-shadow:0 20px 60px rgba(0,0,0,0.95);">
+            <div class="pt" style="font-size:clamp(17px,3vw,30px); padding:clamp(8px,1.3vw,13px) clamp(12px,2vw,22px);">YOUR · NAME</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subheading -->
+      <div class="anim-in a5">
+        <p class="text-gray-400 text-lg sm:text-xl max-w-lg mx-auto mb-10 leading-relaxed font-light">
+          Any text. Any style. Delivered anywhere in India — starting at just <span class="text-white font-semibold">₹799</span>.
+        </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="anim-in a6 flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+        <a href="https://wa.me/918356850938?text=Hi!%20I%20want%20to%20order%20a%20custom%20number%20plate.%20Please%20help%20me%20with%20the%20details."
+          target="_blank" rel="noopener" class="btn-wa px-9 py-4 text-[16px]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Order on WhatsApp
+        </a>
+        <a href="#styles"
+          class="px-9 py-4 text-[16px] font-semibold rounded-full hover:text-white transition-all"
+          style="border:1px solid rgba(255,215,0,0.4); color:rgba(255,215,0,0.85);">
+          See Styles →
+        </a>
+      </div>
+
+      <p class="anim-in a7 text-gray-600 text-sm font-medium">No hidden charges &nbsp;·&nbsp; Pan-India delivery &nbsp;·&nbsp; 100% customised</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ TICKER ═══════════════════════════════════ -->
+  <div class="overflow-hidden py-4 border-y border-white/[0.07]" style="background:#111;">
+    <div class="ticker-inner text-sm font-semibold tracking-widest text-gray-500 uppercase">
+      <!-- Block 1 -->
+      <span class="px-6">FAMILY NAME &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">LUCKY 7 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">MH · 01 · 2025 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">YOUR INITIALS &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">BORN 2001 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">GARAGE LIFE &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">KING VIRAT &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">HOME 2024 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">DREAM BIG &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">MY ROOM &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">SPORTS 18 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">SQUAD GOALS &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <!-- Block 2 (identical for seamless loop) -->
+      <span class="px-6">FAMILY NAME &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">LUCKY 7 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">MH · 01 · 2025 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">YOUR INITIALS &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">BORN 2001 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">GARAGE LIFE &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">KING VIRAT &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">HOME 2024 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">DREAM BIG &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">MY ROOM &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6"> 18 &nbsp;<span style="color:#FFD700;">✦</span></span>
+      <span class="px-6">SQUAD GOALS &nbsp;<span style="color:#FFD700;">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ STYLES ═══════════════════════════════════ -->
+  <section id="styles" class="py-24 px-5" style="background:#f9f8f6;">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-xs font-bold tracking-[4px] uppercase mb-3"
+          style="color:#FFD700; background:#0d0d0d; display:inline-block; padding:4px 12px; border-radius:4px;">04
+          Styles Available</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-3" style="line-height:1.1;">Choose Your Finish</h2>
+        <p class="text-gray-500 text-lg mt-4 max-w-md mx-auto">Every plate is made to order. Tell us your text — we'll
+          match your style.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Style 1: Classic White -->
+        <div class="style-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <div class="flex justify-center mb-5">
+            <div class="plate plate-white" style="transform:rotate(-1deg);">
+              <div class="ind" style="font-size:7px; padding:4px 5px;">
+                <span style="font-size:9px;">🇮🇳</span>
+                <span>IND</span>
+              </div>
+              <div class="pt" style="font-size:22px; padding:8px 14px; letter-spacing:3px;">MH 01 AB</div>
+            </div>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Classic White</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">The iconic Indian number plate look. White base, bold black
+            text, blue IND badge.</p>
+          <div class="mt-4 text-xs font-semibold text-gray-400 uppercase tracking-widest">Most Popular</div>
+        </div>
+
+        <!-- Style 2: Midnight Black -->
+        <div class="style-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <div class="flex justify-center mb-5">
+            <div class="plate plate-black" style="transform:rotate(-1deg);">
+              <div class="pt" style="font-size:22px; padding:8px 18px; letter-spacing:3px;">KING 18</div>
+            </div>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Midnight Black</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Matte black base with gold text. Premium, sleek, and
+            impossible to ignore.</p>
+          <div class="mt-4 text-xs font-semibold uppercase tracking-widest" style="color:#FFD700;">Best Seller</div>
+        </div>
+
+        <!-- Style 3: Vintage Amber -->
+        <div class="style-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <div class="flex justify-center mb-5">
+            <div class="plate plate-vintage" style="transform:rotate(-1deg);">
+              <div class="pt"
+                style="font-size:22px; padding:8px 18px; letter-spacing:3px; position:relative; z-index:1;">RETRO 70
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Vintage Amber</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Old-world charm with an amber finish. Perfect for retro rooms
+            and café walls.</p>
+          <div class="mt-4 text-xs font-semibold text-gray-400 uppercase tracking-widest">Café Favourite</div>
+        </div>
+
+        <!-- Style 4: Royal Navy -->
+        <div class="style-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <div class="flex justify-center mb-5">
+            <div class="plate plate-navy" style="transform:rotate(-1deg);">
+              <div class="pt" style="font-size:22px; padding:8px 18px; letter-spacing:3px;">ROYAL 01</div>
+            </div>
+          </div>
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Royal Navy</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Deep navy base with glowing gold text. Elegant, bold, and
+            statement-making.</p>
+          <div class="mt-4 text-xs font-semibold text-gray-400 uppercase tracking-widest">New Arrival</div>
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-10">Not sure which style? Send us a WhatsApp and we'll help you
+        choose. 💬</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ HOW IT WORKS ═══════════════════════════════════ -->
+  <section id="how" class="py-24 px-5 bg-[#0d0d0d] dot-grid relative overflow-hidden">
+    <!-- Glow -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
+      style="background:radial-gradient(ellipse,rgba(255,215,0,0.05) 0%,transparent 70%);"></div>
+
+    <div class="relative max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-xs font-bold tracking-[4px] uppercase mb-3" style="color:#FFD700;">3 Simple Steps</p>
+        <h2
+          style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1; letter-spacing:2px;"
+          class="text-white">How to Order</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="relative">
+          <div
+            style="font-family:'Bebas Neue',sans-serif; font-size:96px; line-height:1; color:#FFD700; opacity:0.08; position:absolute; top:-10px; left:0; pointer-events:none;">
+            01</div>
+          <div class="relative pt-12 pl-1">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+              style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2);">
+              <svg class="w-6 h-6" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+              </svg>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2">Message Us</h3>
+            <p class="text-gray-500 leading-relaxed">Drop us a WhatsApp with your text, style preference, and any
+              special requests. We'll confirm and get started.</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            style="font-family:'Bebas Neue',sans-serif; font-size:96px; line-height:1; color:#FFD700; opacity:0.08; position:absolute; top:-10px; left:0; pointer-events:none;">
+            02</div>
+          <div class="relative pt-12 pl-1">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+              style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2);">
+              <svg class="w-6 h-6" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+              </svg>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2">Make Payment</h3>
+            <p class="text-gray-500 leading-relaxed">Pay ₹799 (or quoted amount) via UPI, GPay, or any method you
+              prefer. Fast, secure, and hassle-free.</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            style="font-family:'Bebas Neue',sans-serif; font-size:96px; line-height:1; color:#FFD700; opacity:0.08; position:absolute; top:-10px; left:0; pointer-events:none;">
+            03</div>
+          <div class="relative pt-12 pl-1">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+              style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2);">
+              <svg class="w-6 h-6" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+              </svg>
+            </div>
+            <h3 class="text-white font-bold text-xl mb-2">Receive It</h3>
+            <p class="text-gray-500 leading-relaxed">Your custom plate is crafted and shipped across India. Delivered
+              right to your door in 5–7 working days.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ PRICING ═══════════════════════════════════ -->
+  <section id="pricing" class="py-24 px-5" style="background:#f9f8f6;">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-xs font-bold tracking-[4px] uppercase mb-3"
+          style="color:#FFD700; background:#0d0d0d; display:inline-block; padding:4px 12px; border-radius:4px;">
+          Transparent Pricing</p>
+        <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-3">Simple. No Surprises.</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Base -->
+        <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Standard Plate</h3>
+          <p class="text-gray-400 text-sm mb-6">Up to 8 characters, any style</p>
+          <div class="text-4xl font-black text-gray-900 mb-1">₹799</div>
+          <p class="text-gray-400 text-sm mb-8">+ shipping</p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-center gap-2.5"><span
+                class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#FFD700;">✓</span> Any text or numbers</li>
+            <li class="flex items-center gap-2.5"><span
+                class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#FFD700;">✓</span> Choose your style</li>
+            <li class="flex items-center gap-2.5"><span
+                class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#FFD700;">✓</span> Standard size plate</li>
+            <li class="flex items-center gap-2.5"><span
+                class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                style="background:#FFD700;">✓</span> Pan-India delivery</li>
+          </ul>
+        </div>
+
+        <!-- Add-ons -->
+        <div class="rounded-2xl p-8 text-white relative overflow-hidden" style="background:#0d0d0d;">
+          <div class="absolute top-0 right-0 px-3 py-1 text-[11px] font-bold tracking-widest uppercase rounded-bl-xl"
+            style="background:#FFD700; color:#0d0d0d;">Popular</div>
+          <h3 class="font-bold text-white text-lg mb-1">Custom Add-ons</h3>
+          <p class="text-gray-400 text-sm mb-6">Make it extra personal</p>
+          <ul class="space-y-4 text-sm text-gray-300">
+            <li class="flex items-center justify-between border-b border-white/10 pb-3">
+              <span>Extra characters (9–12)</span>
+              <span class="font-bold text-white">+₹100</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/10 pb-3">
+              <span>Custom border / frame</span>
+              <span class="font-bold text-white">+₹100</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/10 pb-3">
+              <span>Larger plate size</span>
+              <span class="font-bold text-white">+₹150</span>
+            </li>
+            <li class="flex items-center justify-between pb-1">
+              <span>Special symbols / logo</span>
+              <span class="font-bold text-white">+₹50</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Shipping -->
+        <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Delivery</h3>
+          <p class="text-gray-400 text-sm mb-6">We ship everywhere in India</p>
+          <ul class="space-y-4 text-sm text-gray-600">
+            <li class="flex items-center justify-between border-b border-gray-100 pb-3">
+              <span>Standard shipping</span>
+              <span class="font-bold text-gray-900">₹80</span>
+            </li>
+            <li class="flex items-center justify-between border-b border-gray-100 pb-3">
+              <span>Express (3 days)</span>
+              <span class="font-bold text-gray-900">₹150</span>
+            </li>
+            <li class="flex items-center justify-between pb-1">
+              <span>Delivery time</span>
+              <span class="font-bold text-gray-900">5–7 days</span>
+            </li>
+          </ul>
+          <p class="text-xs text-gray-400 mt-5 leading-relaxed">Free shipping on orders above ₹1,500 🎉</p>
+        </div>
+
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-10">Need a bulk order or something special? <a
+          href="https://wa.me/918356850938?text=Hi!%20I%20have%20a%20bulk%20order%20enquiry%20for%20custom%20number%20plates."
+          target="_blank" class="font-semibold underline text-gray-700">Message us on WhatsApp.</a></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ GALLERY ═══════════════════════════════════ -->
+  <section class="py-24 px-5 bg-[#0d0d0d]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-xs font-bold tracking-[4px] uppercase mb-3" style="color:#FFD700;">Real Products. Real Quality.
+        </p>
+        <h2
+          style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1; letter-spacing:2px;"
+          class="text-white">See What You Get</h2>
+        <p class="text-gray-500 mt-4 text-lg font-light max-w-md mx-auto">Every plate is handcrafted and shipped
+          directly to you. This is exactly what arrives at your door.</p>
+      </div>
+
+      <!-- 6-photo grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+
+        <!-- gallery-6: plate wall collection -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+          <img src="gallery-6.jpg" alt="Vintage plate wall collection"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute bottom-0 inset-x-0 p-4"
+            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+            <span class="text-white font-semibold text-sm">Vintage Collection</span>
+          </div>
+        </div>
+
+        <!-- gallery-7: rustic wooden wall display -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+          <img src="gallery-7.jpg" alt="Plates on rustic wooden wall"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute bottom-0 inset-x-0 p-4"
+            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+            <span class="text-white font-semibold text-sm">Rustic Wall Display</span>
+          </div>
+        </div>
+
+        <!-- gallery-8: Ferrari edition -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+          <img src="gallery-8.jpg" alt="Ferrari F1 1929 custom plate"
+            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute bottom-0 inset-x-0 p-4"
+            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+            <span class="text-white font-semibold text-sm">Ferrari Edition · F1 1929</span>
+          </div>
+        </div>
+
+        <!-- gallery-9: Porsche edition -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+          <img src="gallery-9.jpg" alt="Porsche 1914 vintage custom plate"
+            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute bottom-0 inset-x-0 p-4"
+            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+            <span class="text-white font-semibold text-sm">Porsche Edition · 1914</span>
+          </div>
+        </div>
+
+        <!-- gallery-10: Lamborghini edition -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+          <img src="gallery-10.jpg" alt="Lamborghini ITA LAM custom plate"
+            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute bottom-0 inset-x-0 p-4"
+            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+            <span class="text-white font-semibold text-sm">Lamborghini Edition · ITA LAM</span>
+          </div>
+        </div>
+
+        <!-- gallery-11: Garage edition -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+          <img src="gallery-11.jpg" alt="Garage Mechanic On Duty vintage sign"
+            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+          <div class="absolute bottom-0 inset-x-0 p-4"
+            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+            <span class="text-white font-semibold text-sm">Garage Edition · Mechanic On Duty</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center">
+        <a href="https://wa.me/918356850938?text=Hi!%20I%20want%20to%20order%20a%20custom%20number%20plate.%20Please%20help%20me%20with%20the%20details."
+          target="_blank" rel="noopener" class="btn-wa px-8 py-4 text-[15px]">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Order Your Plate Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ WHY US ═══════════════════════════════════ -->
+  <section class="py-20 px-5 bg-[#0d0d0d]">
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+
+      <div class="p-6">
+        <div class="text-3xl mb-3">🎨</div>
+        <h4 class="font-bold text-white mb-2">100% Custom</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">Any text, name, number, or combination. If you can imagine it,
+          we can make it.</p>
+      </div>
+
+      <div class="p-6">
+        <div class="text-3xl mb-3">⚡</div>
+        <h4 class="font-bold text-white mb-2">Fast Turnaround</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">Orders are crafted and dispatched within 48 hours of payment
+          confirmation.</p>
+      </div>
+
+      <div class="p-6">
+        <div class="text-3xl mb-3">📦</div>
+        <h4 class="font-bold text-white mb-2">Pan-India Delivery</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">We ship to every corner of India. Track your order from our end
+          to yours.</p>
+      </div>
+
+      <div class="p-6">
+        <div class="text-3xl mb-3">💬</div>
+        <h4 class="font-bold text-white mb-2">Direct Support</h4>
+        <p class="text-gray-500 text-sm leading-relaxed">No bots, no forms. Chat with us directly on WhatsApp and get
+          instant help.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FAQ ═══════════════════════════════════ -->
+  <section class="py-20 px-5" style="background:#f9f8f6;">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Got Questions?</h2>
+      </div>
+
+      <div class="space-y-3">
+
+        <details class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+          <summary class="flex items-center justify-between p-5 font-semibold text-gray-900 text-[15px]">
+            What size are the plates?
+            <span class="faq-icon text-gray-400 text-xl font-light ml-4">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">Our standard plate is approximately 52cm × 11cm —
+            the same size as a real Indian number plate. Custom sizes are available at an additional charge.</p>
+        </details>
+
+        <details class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+          <summary class="flex items-center justify-between p-5 font-semibold text-gray-900 text-[15px]">
+            Can I put any text on my plate?
+            <span class="faq-icon text-gray-400 text-xl font-light ml-4">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">Yes! Any letters, numbers, names, initials, words,
+            or short phrases. Standard price covers up to 8 characters including spaces. Add-on charges apply for more.
+          </p>
+        </details>
+
+        <details class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+          <summary class="flex items-center justify-between p-5 font-semibold text-gray-900 text-[15px]">
+            What material is the plate made from?
+            <span class="faq-icon text-gray-400 text-xl font-light ml-4">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">Our plates are made from high-quality acrylic with
+            UV-resistant print finish — durable, lightweight, and perfect for indoor display.</p>
+        </details>
+
+        <details class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+          <summary class="flex items-center justify-between p-5 font-semibold text-gray-900 text-[15px]">
+            How do I place an order?
+            <span class="faq-icon text-gray-400 text-xl font-light ml-4">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">Just click the WhatsApp button on this page! Tell
+            us your text, style, and delivery address. We'll confirm the price and guide you through payment — all on
+            WhatsApp.</p>
+        </details>
+
+        <details class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+          <summary class="flex items-center justify-between p-5 font-semibold text-gray-900 text-[15px]">
+            Do you take bulk or gifting orders?
+            <span class="faq-icon text-gray-400 text-xl font-light ml-4">+</span>
+          </summary>
+          <p class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">Absolutely — plates make amazing personalised
+            gifts! Message us for bulk pricing and we'll work something out for you.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FINAL CTA ═══════════════════════════════════ -->
+  <section class="py-28 px-5 text-center relative overflow-hidden dot-grid" style="background:#0d0d0d;">
+    <div class="absolute inset-0 pointer-events-none"
+      style="background:radial-gradient(ellipse at center, rgba(255,215,0,0.06) 0%, transparent 65%);"></div>
+    <div class="relative max-w-2xl mx-auto">
+      <div class="flex justify-center mb-10">
+        <div class="plate plate-black" style="transform:rotate(1deg);">
+          <div class="pt" style="font-size:clamp(22px,4vw,38px); padding:10px 20px; letter-spacing:4px;">ORDER NOW</div>
+        </div>
+      </div>
+      <h2
+        style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.8rem,7vw,5.5rem); line-height:1; letter-spacing:2px;"
+        class="text-white mb-4">
+        Ready to Make<br /><span class="text-gold">Your Plate?</span>
+      </h2>
+      <p class="text-gray-500 text-lg mb-10 font-light">Starting at just ₹799. Takes 2 minutes to order. Delivered in
+        days.</p>
+      <a href="https://wa.me/918356850938?text=Hi!%20I%20want%20to%20order%20a%20custom%20number%20plate.%20Please%20help%20me%20with%20the%20details."
+        target="_blank" rel="noopener" class="btn-wa px-10 py-4 text-[17px]">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="white">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        Chat with us on WhatsApp
+      </a>
+      <p class="text-gray-600 text-sm mt-5">+91 83568 50938 &nbsp;·&nbsp; Usually replies within minutes</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+  <footer class="py-8 px-5 border-t border-white/[0.06]" style="background:#0d0d0d;">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded flex items-center justify-center" style="background:#FFD700;">
+          <span style="font-family:'Anton',sans-serif; color:#0d0d0d; font-size:14px;">S</span>
+        </div>
+        <span class="font-bold text-white text-base">StudioPlated</span>
+      </div>
+      <p class="text-gray-600 text-sm">© 2025 StudioPlated. Custom number plates for room décor. Made in India 🇮🇳</p>
+      <a href="https://wa.me/918356850938" target="_blank" class="text-sm font-semibold" style="color:#25D366;">+91
+        83568 50938</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      /* Show photo mosaic background once at least one image loads */
+      var photoBg = document.getElementById('hero-photo-bg');
+      var fallbackBg = document.getElementById('hero-fallback-bg');
+      var imgs = photoBg ? photoBg.querySelectorAll('img') : [];
+      var loaded = 0;
+      imgs.forEach(function(img) {
+        img.onload = function() {
+          loaded++;
+          if (loaded === 1) {
+            photoBg.style.display = 'block';
+            if (fallbackBg) fallbackBg.style.opacity = '0';
+          }
+        };
+        img.onerror = function() { this.parentNode.style.background = '#111'; };
+      });
+
+      /* Enable staggered entrance animations after first paint */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          document.documentElement.classList.add('js-anim');
+        });
+      });
+
+
+      /* Generate floating gold particles */
+      var container = document.getElementById('hero-particles');
+      if (!container) return;
+      for (var i = 0; i < 28; i++) {
+        var p = document.createElement('div');
+        p.className = 'gold-particle';
+        var size = 1 + Math.random() * 2.5;
+        p.style.cssText = [
+          'left:' + (4 + Math.random() * 92) + '%',
+          'bottom:' + (Math.random() * 50) + '%',
+          'width:' + size + 'px',
+          'height:' + size + 'px',
+          'animation-delay:' + (Math.random() * 7) + 's',
+          'animation-duration:' + (3.5 + Math.random() * 5.5) + 's',
+          'opacity:0'
+        ].join(';');
+        container.appendChild(p);
+      }
+    })();
+  </script>
+</body>
+
+</html>
