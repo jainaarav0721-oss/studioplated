@@ -1628,7 +1628,7 @@
           ptEl.style.fontWeight = isBold ? '900' : '700';
         } else {
           // Brand mode: split text at first space for left/right
-          indEl.style.display = 'none';
+          indEl.style.display = (s && s.hasInd) ? '' : 'none';
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
 
