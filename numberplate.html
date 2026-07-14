@@ -897,8 +897,9 @@
             <!-- Standard mode -->
             <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">YOUR · NAME</div>
             <!-- Brand mode -->
-            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 28px 12px; gap:4px; width:100%;">
+            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 28px 12px; gap:3px; width:100%;">
               <div id="hp-brand-header" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:11px; letter-spacing:4px; text-align:center;"></div>
+              <img id="hp-brand-logo" src="" alt="" style="width:28px;height:28px;object-fit:contain;display:none;" />
               <div id="hp-brand-maintext" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:5px; line-height:1; transition:font-size 0.15s; text-align:center;"></div>
               <div id="hp-brand-footer" style="font-family:'Rajdhani',sans-serif; font-weight:600; font-size:9px; letter-spacing:3px; text-align:center; opacity:0.65;"></div>
             </div>
@@ -1534,6 +1535,7 @@
       var ptEl         = document.getElementById('hp-pt');
       var brandInner    = document.getElementById('hp-brand-inner');
       var brandHeader   = document.getElementById('hp-brand-header');
+      var brandLogo     = document.getElementById('hp-brand-logo');
       var brandMaintext = document.getElementById('hp-brand-maintext');
       var brandFooter   = document.getElementById('hp-brand-footer');
       var orderBtn     = document.getElementById('hp-order-btn');
@@ -1621,7 +1623,7 @@
           ptEl.style.fontSize   = (len <= 6 ? 46 : len <= 9 ? 36 : 28) + 'px';
           ptEl.style.fontWeight = fw;
         } else {
-          // Brand mode: header / text / footer, no logo on plate
+          // Brand mode: header / logo / text / footer
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
 
@@ -1635,6 +1637,15 @@
           brandHeader.style.color   = tc;
           brandMaintext.style.color = tc;
           brandFooter.style.color   = tc;
+
+          // Brand logo on plate
+          if (b.slug) {
+            brandLogo.src = 'https://cdn.simpleicons.org/' + b.slug;
+            brandLogo.style.display = '';
+            brandLogo.style.filter = filterFor(tc);
+          } else {
+            brandLogo.style.display = 'none';
+          }
         }
       }
 
