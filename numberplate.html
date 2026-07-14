@@ -119,24 +119,79 @@
     }
 
     /* Arizona red */
-    .plate-red { background: #b91c1c; border: 4px solid #7f1d1d; }
-    .plate-red .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#f5f5f5; letter-spacing:5px; padding:10px 22px; line-height:1; }
+    .plate-red {
+      background: #b91c1c;
+      border: 4px solid #7f1d1d;
+    }
+
+    .plate-red .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #f5f5f5;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
 
     /* Florida teal */
-    .plate-teal { background: #0d6b8a; border: 3px solid #084f66; }
-    .plate-teal .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#e8e8e8; letter-spacing:5px; padding:10px 22px; line-height:1; }
+    .plate-teal {
+      background: #0d6b8a;
+      border: 3px solid #084f66;
+    }
+
+    .plate-teal .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #e8e8e8;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
 
     /* Yellow classic */
-    .plate-yellow { background: #eab308; border: 3px solid #a16207; }
-    .plate-yellow .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#1a1a1a; letter-spacing:5px; padding:10px 22px; line-height:1; }
+    .plate-yellow {
+      background: #eab308;
+      border: 3px solid #a16207;
+    }
+
+    .plate-yellow .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
 
     /* Forest green */
-    .plate-green { background: #166534; border: 3px solid #14532d; }
-    .plate-green .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#f0fdf4; letter-spacing:5px; padding:10px 22px; line-height:1; }
+    .plate-green {
+      background: #166534;
+      border: 3px solid #14532d;
+    }
+
+    .plate-green .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #f0fdf4;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
 
     /* Burnt orange */
-    .plate-orange { background: #c2410c; border: 3px solid #9a3412; }
-    .plate-orange .pt { font-family:'Rajdhani',sans-serif; font-weight:700; color:#fff7ed; letter-spacing:5px; padding:10px 22px; line-height:1; }
+    .plate-orange {
+      background: #c2410c;
+      border: 3px solid #9a3412;
+    }
+
+    .plate-orange .pt {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: #fff7ed;
+      letter-spacing: 5px;
+      padding: 10px 22px;
+      line-height: 1;
+    }
 
     /* ── Floating hero animation ── */
     @keyframes float {
@@ -235,19 +290,43 @@
 
     /* ── Hero background orbs ── */
     @keyframes orb-drift-a {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(35px, -25px) scale(1.06); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(35px, -25px) scale(1.06);
+      }
     }
 
     @keyframes orb-drift-b {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(-45px, 30px) scale(0.94); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-45px, 30px) scale(0.94);
+      }
     }
 
     @keyframes orb-drift-c {
-      0%, 100% { transform: translate(0, 0); }
-      33% { transform: translate(20px, 15px); }
-      66% { transform: translate(-20px, -10px); }
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      33% {
+        transform: translate(20px, 15px);
+      }
+
+      66% {
+        transform: translate(-20px, -10px);
+      }
     }
 
     .hero-orb {
@@ -286,117 +365,389 @@
 
     /* ── StudioPlated nav logo animations ── */
     @keyframes brand-zoom-in {
-      from { opacity: 0; transform: scale(0.55) translateY(5px); }
-      to   { opacity: 1; transform: scale(1)    translateY(0); }
+      from {
+        opacity: 0;
+        transform: scale(0.55) translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
+
     @keyframes brand-float {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-4px); }
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-4px);
+      }
     }
+
     @keyframes icon-pop {
-      0%   { opacity: 0; transform: scale(0) rotate(-15deg); }
-      70%  { transform: scale(1.18) rotate(4deg); }
-      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+      0% {
+        opacity: 0;
+        transform: scale(0) rotate(-15deg);
+      }
+
+      70% {
+        transform: scale(1.18) rotate(4deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
     }
-    .brand-icon { animation: icon-pop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.05s both; }
+
+    .brand-icon {
+      animation: icon-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both;
+    }
+
     .brand-name {
-      animation: brand-zoom-in 0.55s cubic-bezier(0.22,1,0.36,1) 0.18s both,
-                 brand-float   3.6s  ease-in-out 0.75s infinite;
+      animation: brand-zoom-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both,
+        brand-float 3.6s ease-in-out 0.75s infinite;
     }
 
     /* ── Hero entrance animations ── */
     @keyframes zoom-reveal {
-      from { opacity: 0; transform: scale(0.84); }
-      to   { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.84);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
+
     @keyframes headline-zoom {
-      from { opacity: 0; transform: scale(0.72) translateY(6px); }
-      to   { opacity: 1; transform: scale(1)    translateY(0); }
+      from {
+        opacity: 0;
+        transform: scale(0.72) translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
+
     @keyframes plate-spring-in {
-      0%   { opacity: 0; transform: scale(0.82) translateY(40px); }
-      65%  { transform: scale(1.03) translateY(-5px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
+      0% {
+        opacity: 0;
+        transform: scale(0.82) translateY(40px);
+      }
+
+      65% {
+        transform: scale(1.03) translateY(-5px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
     }
 
     /* Elements start invisible; JS adds .js-anim class to html to trigger staggered reveals */
-    .js-anim .anim-in { opacity: 0; }
-    .js-anim .anim-in.a1 { animation: zoom-reveal     0.6s  0.05s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .js-anim .anim-in.a2 { animation: headline-zoom   0.75s 0.15s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .js-anim .anim-in.a3 { animation: headline-zoom   0.75s 0.25s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .js-anim .anim-in.a4 { animation: plate-spring-in 0.9s  0.4s  cubic-bezier(0.22,1,0.36,1) forwards; }
-    .js-anim .anim-in.a5 { animation: zoom-reveal     0.65s 0.58s cubic-bezier(0.22,1,0.36,1) forwards; }
-    .js-anim .anim-in.a6 { animation: zoom-reveal     0.65s 0.7s  cubic-bezier(0.22,1,0.36,1) forwards; }
-    .js-anim .anim-in.a7 { animation: zoom-reveal     0.55s 0.82s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .js-anim .anim-in {
+      opacity: 0;
+    }
+
+    .js-anim .anim-in.a1 {
+      animation: zoom-reveal 0.6s 0.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .js-anim .anim-in.a2 {
+      animation: headline-zoom 0.75s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .js-anim .anim-in.a3 {
+      animation: headline-zoom 0.75s 0.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .js-anim .anim-in.a4 {
+      animation: plate-spring-in 0.9s 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .js-anim .anim-in.a5 {
+      animation: zoom-reveal 0.65s 0.58s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .js-anim .anim-in.a6 {
+      animation: zoom-reveal 0.65s 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .js-anim .anim-in.a7 {
+      animation: zoom-reveal 0.55s 0.82s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
 
     /* ── Gallery background plates ── */
     @keyframes gp-drift-a {
-      0%,100% { transform: rotate(-12deg) translate(0,0); }
-      30%  { transform: rotate(-14deg) translate(14px,-20px); }
-      65%  { transform: rotate(-10deg) translate(-9px,13px); }
+
+      0%,
+      100% {
+        transform: rotate(-12deg) translate(0, 0);
+      }
+
+      30% {
+        transform: rotate(-14deg) translate(14px, -20px);
+      }
+
+      65% {
+        transform: rotate(-10deg) translate(-9px, 13px);
+      }
     }
+
     @keyframes gp-drift-b {
-      0%,100% { transform: rotate(16deg) translate(0,0); }
-      40%  { transform: rotate(18deg) translate(-16px,-13px); }
-      70%  { transform: rotate(14deg) translate(11px,17px); }
+
+      0%,
+      100% {
+        transform: rotate(16deg) translate(0, 0);
+      }
+
+      40% {
+        transform: rotate(18deg) translate(-16px, -13px);
+      }
+
+      70% {
+        transform: rotate(14deg) translate(11px, 17px);
+      }
     }
+
     @keyframes gp-drift-c {
-      0%,100% { transform: rotate(-7deg) translate(0,0); }
-      25%  { transform: rotate(-9deg) translate(11px,-24px); }
-      75%  { transform: rotate(-5deg) translate(-13px,10px); }
+
+      0%,
+      100% {
+        transform: rotate(-7deg) translate(0, 0);
+      }
+
+      25% {
+        transform: rotate(-9deg) translate(11px, -24px);
+      }
+
+      75% {
+        transform: rotate(-5deg) translate(-13px, 10px);
+      }
     }
+
     @keyframes gp-drift-d {
-      0%,100% { transform: rotate(11deg) translate(0,0); }
-      45%  { transform: rotate(9deg) translate(-13px,-16px); }
-      80%  { transform: rotate(13deg) translate(9px,19px); }
+
+      0%,
+      100% {
+        transform: rotate(11deg) translate(0, 0);
+      }
+
+      45% {
+        transform: rotate(9deg) translate(-13px, -16px);
+      }
+
+      80% {
+        transform: rotate(13deg) translate(9px, 19px);
+      }
     }
+
     @keyframes gp-drift-e {
-      0%,100% { transform: rotate(-20deg) translate(0,0); }
-      50%  { transform: rotate(-22deg) translate(22px,-12px); }
+
+      0%,
+      100% {
+        transform: rotate(-20deg) translate(0, 0);
+      }
+
+      50% {
+        transform: rotate(-22deg) translate(22px, -12px);
+      }
     }
+
     @keyframes gp-drift-f {
-      0%,100% { transform: rotate(23deg) translate(0,0); }
-      50%  { transform: rotate(21deg) translate(-19px,9px); }
+
+      0%,
+      100% {
+        transform: rotate(23deg) translate(0, 0);
+      }
+
+      50% {
+        transform: rotate(21deg) translate(-19px, 9px);
+      }
     }
 
     @keyframes gp-drift-g {
-      0%,100% { transform: rotate(5deg) translate(0,0); }
-      50%  { transform: rotate(7deg) translate(-10px,-18px); }
-    }
-    @keyframes gp-drift-h {
-      0%,100% { transform: rotate(-15deg) translate(0,0); }
-      50%  { transform: rotate(-13deg) translate(15px,14px); }
+
+      0%,
+      100% {
+        transform: rotate(5deg) translate(0, 0);
+      }
+
+      50% {
+        transform: rotate(7deg) translate(-10px, -18px);
+      }
     }
 
-    .gp { position: absolute; pointer-events: none; }
+    @keyframes gp-drift-h {
+
+      0%,
+      100% {
+        transform: rotate(-15deg) translate(0, 0);
+      }
+
+      50% {
+        transform: rotate(-13deg) translate(15px, 14px);
+      }
+    }
+
+    .gp {
+      position: absolute;
+      pointer-events: none;
+    }
+
     /* Edges — more visible */
-    .gp-1  { top:3%;     left:1%;    opacity:0.22; animation: gp-drift-a 16s ease-in-out infinite; }
-    .gp-2  { top:5%;     right:2%;   opacity:0.24; animation: gp-drift-b 20s ease-in-out infinite; }
-    .gp-3  { bottom:15%; left:3%;    opacity:0.22; animation: gp-drift-c 18s ease-in-out infinite; }
-    .gp-4  { bottom:10%; right:5%;   opacity:0.24; animation: gp-drift-d 22s ease-in-out infinite; }
-    .gp-5  { top:38%;    left:-2%;   opacity:0.18; animation: gp-drift-e 23s ease-in-out infinite; }
-    .gp-6  { top:44%;    right:-1%;  opacity:0.2;  animation: gp-drift-f 19s ease-in-out infinite; }
+    .gp-1 {
+      top: 3%;
+      left: 1%;
+      opacity: 0.22;
+      animation: gp-drift-a 16s ease-in-out infinite;
+    }
+
+    .gp-2 {
+      top: 5%;
+      right: 2%;
+      opacity: 0.24;
+      animation: gp-drift-b 20s ease-in-out infinite;
+    }
+
+    .gp-3 {
+      bottom: 15%;
+      left: 3%;
+      opacity: 0.22;
+      animation: gp-drift-c 18s ease-in-out infinite;
+    }
+
+    .gp-4 {
+      bottom: 10%;
+      right: 5%;
+      opacity: 0.24;
+      animation: gp-drift-d 22s ease-in-out infinite;
+    }
+
+    .gp-5 {
+      top: 38%;
+      left: -2%;
+      opacity: 0.18;
+      animation: gp-drift-e 23s ease-in-out infinite;
+    }
+
+    .gp-6 {
+      top: 44%;
+      right: -1%;
+      opacity: 0.2;
+      animation: gp-drift-f 19s ease-in-out infinite;
+    }
+
     /* Upper band */
-    .gp-7  { top:2%;     left:28%;   opacity:0.18; animation: gp-drift-g 21s ease-in-out infinite; }
-    .gp-8  { top:4%;     right:25%;  opacity:0.2;  animation: gp-drift-h 17s ease-in-out infinite; }
+    .gp-7 {
+      top: 2%;
+      left: 28%;
+      opacity: 0.18;
+      animation: gp-drift-g 21s ease-in-out infinite;
+    }
+
+    .gp-8 {
+      top: 4%;
+      right: 25%;
+      opacity: 0.2;
+      animation: gp-drift-h 17s ease-in-out infinite;
+    }
+
     /* Lower band */
-    .gp-9  { bottom:8%;  left:22%;   opacity:0.2;  animation: gp-drift-b 24s ease-in-out infinite reverse; }
-    .gp-10 { bottom:6%;  right:20%;  opacity:0.18; animation: gp-drift-a 20s ease-in-out infinite reverse; }
+    .gp-9 {
+      bottom: 8%;
+      left: 22%;
+      opacity: 0.2;
+      animation: gp-drift-b 24s ease-in-out infinite reverse;
+    }
+
+    .gp-10 {
+      bottom: 6%;
+      right: 20%;
+      opacity: 0.18;
+      animation: gp-drift-a 20s ease-in-out infinite reverse;
+    }
+
     /* Mid-frame — faint / blurred */
-    .gp-11 { top:18%;    left:14%;   opacity:0.1;  filter:blur(1px); animation: gp-drift-c 26s ease-in-out infinite; }
-    .gp-12 { top:16%;    right:12%;  opacity:0.1;  filter:blur(1px); animation: gp-drift-d 30s ease-in-out infinite; }
-    .gp-13 { bottom:25%; left:18%;   opacity:0.09; filter:blur(1.5px); animation: gp-drift-g 28s ease-in-out infinite reverse; }
-    .gp-14 { bottom:22%; right:16%;  opacity:0.09; filter:blur(1.5px); animation: gp-drift-h 22s ease-in-out infinite reverse; }
+    .gp-11 {
+      top: 18%;
+      left: 14%;
+      opacity: 0.1;
+      filter: blur(1px);
+      animation: gp-drift-c 26s ease-in-out infinite;
+    }
+
+    .gp-12 {
+      top: 16%;
+      right: 12%;
+      opacity: 0.1;
+      filter: blur(1px);
+      animation: gp-drift-d 30s ease-in-out infinite;
+    }
+
+    .gp-13 {
+      bottom: 25%;
+      left: 18%;
+      opacity: 0.09;
+      filter: blur(1.5px);
+      animation: gp-drift-g 28s ease-in-out infinite reverse;
+    }
+
+    .gp-14 {
+      bottom: 22%;
+      right: 16%;
+      opacity: 0.09;
+      filter: blur(1.5px);
+      animation: gp-drift-h 22s ease-in-out infinite reverse;
+    }
+
     /* Deep background — very faint */
-    .gp-15 { top:30%;    left:38%;   opacity:0.06; filter:blur(2.5px); animation: gp-drift-e 34s ease-in-out infinite; }
-    .gp-16 { bottom:38%; right:35%;  opacity:0.06; filter:blur(2.5px); animation: gp-drift-f 38s ease-in-out infinite reverse; }
+    .gp-15 {
+      top: 30%;
+      left: 38%;
+      opacity: 0.06;
+      filter: blur(2.5px);
+      animation: gp-drift-e 34s ease-in-out infinite;
+    }
+
+    .gp-16 {
+      bottom: 38%;
+      right: 35%;
+      opacity: 0.06;
+      filter: blur(2.5px);
+      animation: gp-drift-f 38s ease-in-out infinite reverse;
+    }
 
     /* ── Gold particles ── */
     @keyframes particle-rise {
-      0% { transform: translateY(0) scale(0); opacity: 0; }
-      15% { opacity: 0.9; transform: translateY(-12px) scale(1); }
-      80% { opacity: 0.35; }
-      100% { transform: translateY(-200px) scale(0); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.9;
+        transform: translateY(-12px) scale(1);
+      }
+
+      80% {
+        opacity: 0.35;
+      }
+
+      100% {
+        transform: translateY(-200px) scale(0);
+        opacity: 0;
+      }
     }
 
     .gold-particle {
@@ -415,10 +766,7 @@
   <nav class="fixed top-0 inset-x-0 z-50 bg-[#0d0d0d]/95 backdrop-blur-md border-b border-white/[0.06]">
     <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
       <div class="flex items-center gap-2.5">
-        <div class="brand-icon w-8 h-8 rounded-md flex items-center justify-center" style="background:#FFD700;">
-          <span style="font-family:'Anton',sans-serif; color:#0d0d0d; font-size:16px; line-height:1;">S</span>
-        </div>
-        <span class="brand-name font-bold text-white text-lg tracking-tight">StudioPlated</span>
+        <img src="logo.jpeg" alt="StudioPlated" class="brand-icon" style="width:36px; height:36px; border-radius:8px; object-fit:cover;" />
       </div>
       <div class="hidden sm:flex items-center gap-6 text-sm text-gray-400 font-medium">
         <a href="#styles" class="hover:text-white transition-colors">Styles</a>
@@ -437,20 +785,26 @@
   </nav>
 
   <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center px-5 pt-24 pb-20 relative overflow-hidden"
+  <section
+    class="min-h-screen flex flex-col items-center justify-center px-5 pt-24 pb-16 relative overflow-hidden"
     style="background:#0a0a0a;">
 
     <!-- Photo mosaic background -->
     <div class="absolute inset-0 pointer-events-none" id="hero-photo-bg" style="display:none; transition:opacity 0.5s;">
       <div style="position:absolute;inset:0;display:grid;grid-template-columns:1.1fr 1fr 0.9fr;height:100%;gap:2px;">
-        <div style="overflow:hidden;"><img src="hero-bg-1.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
-        <div style="overflow:hidden;"><img src="hero-bg-4.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center;" /></div>
-        <div style="overflow:hidden;"><img src="hero-bg-3.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div style="overflow:hidden;"><img src="hero-bg-1.jpg"
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div style="overflow:hidden;"><img src="hero-bg-4.jpg"
+            style="width:100%;height:100%;object-fit:cover;object-position:center;" /></div>
+        <div style="overflow:hidden;"><img src="hero-bg-3.jpg"
+            style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
       </div>
       <!-- Dark overlay -->
       <div style="position:absolute;inset:0;background:rgba(0,0,0,0.76);"></div>
       <!-- Center glow so text area is slightly brighter -->
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);"></div>
+      <div
+        style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 100%);">
+      </div>
     </div>
     <!-- Fallback gradient until images load -->
     <div class="absolute inset-0 pointer-events-none" id="hero-fallback-bg"
@@ -461,82 +815,92 @@
 
     <!-- Gold hairline across top -->
     <div class="absolute top-0 inset-x-0 h-[2px]"
-      style="background:linear-gradient(to right, transparent 5%, #FFD700 35%, #FF8C00 65%, transparent 95%); opacity:0.7;"></div>
+      style="background:linear-gradient(to right, transparent 5%, #FFD700 35%, #FF8C00 65%, transparent 95%); opacity:0.7;">
+    </div>
 
     <!-- Floating particles -->
     <div id="hero-particles" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
 
-    <div class="relative z-10 max-w-5xl mx-auto w-full">
+    <div class="relative z-10 max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
-      <!-- Eyebrow -->
-      <div class="anim-in a1 inline-flex items-center gap-3 mb-6">
-        <div class="h-px w-12" style="background:linear-gradient(to right, transparent, #FFD700);"></div>
-        <span class="text-[11px] font-bold tracking-[5px] uppercase" style="color:#FFD700;">Handcrafted · Made in India · Room Décor</span>
-        <div class="h-px w-12" style="background:linear-gradient(to left, transparent, #FFD700);"></div>
-      </div>
+      <!-- ── LEFT: Headline + Controls ── -->
+      <div class="w-full lg:w-[460px] flex-shrink-0">
 
-      <!-- Headline — Anton font for max impact -->
-      <div class="anim-in a2">
-        <h1 style="font-family:'Anton',sans-serif; font-size:clamp(4.5rem,14vw,11rem); line-height:0.84; letter-spacing:2px;" class="text-white">YOUR NAME.</h1>
-      </div>
-      <div class="anim-in a3 mb-10">
-        <h1 style="font-family:'Anton',sans-serif; font-size:clamp(4.5rem,14vw,11rem); line-height:0.84; letter-spacing:2px; background:linear-gradient(135deg,#FFD700 0%,#FF5F00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">YOUR PLATE.</h1>
-      </div>
+        <!-- Eyebrow -->
+        <div class="anim-in a1 inline-flex items-center gap-3 mb-5">
+          <div class="h-px w-8" style="background:linear-gradient(to right,transparent,#FFD700);"></div>
+          <span class="text-[10px] font-bold tracking-[5px] uppercase" style="color:#FFD700;">Handcrafted · Made in India · Room Décor</span>
+          <div class="h-px w-8" style="background:linear-gradient(to left,transparent,#FFD700);"></div>
+        </div>
 
-      <!-- Three plates at different angles -->
-      <div class="anim-in a4 relative flex justify-center items-center mb-12" style="height:clamp(160px,25vw,260px);">
-        <!-- Glow halo behind plates -->
-        <div class="absolute inset-0 pointer-events-none"
-          style="background:radial-gradient(ellipse at center, rgba(255,215,0,0.1) 0%, transparent 52%);"></div>
+        <!-- Headline -->
+        <div class="anim-in a2 mb-7">
+          <h1 style="font-family:'Anton',sans-serif; font-size:clamp(3rem,7vw,5.5rem); line-height:0.88; letter-spacing:1px;" class="text-white">YOUR NAME.<br>
+            <span style="background:linear-gradient(135deg,#FFD700 0%,#FF5F00 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">YOUR PLATE.</span>
+          </h1>
+        </div>
 
-        <!-- Left plate: Royal Navy, tilted left -->
-        <div style="position:absolute; transform:rotate(-9deg) translateX(clamp(-155px,-19vw,-90px)) translateY(16px); z-index:1; opacity:0.82;">
-          <div class="plate plate-navy" style="box-shadow:0 20px 60px rgba(0,0,0,0.95);">
-            <div class="pt" style="font-size:clamp(17px,3vw,30px); padding:clamp(8px,1.3vw,13px) clamp(12px,2vw,22px);">KING · 18</div>
+        <!-- Text input -->
+        <div class="anim-in a3 mb-4">
+          <label class="block text-[10px] font-bold tracking-[3px] uppercase mb-2" style="color:#666;">Your Text</label>
+          <input id="hp-text-input" type="text" maxlength="12" placeholder="AARAV · 07"
+            autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+            class="w-full rounded-xl px-4 py-3 text-white text-xl font-bold uppercase tracking-widest focus:outline-none transition-colors"
+            style="background:rgba(255,255,255,0.07); border:1.5px solid rgba(255,255,255,0.1); font-family:'Rajdhani',sans-serif;" />
+          <p class="text-right text-xs mt-1" style="color:#3a3a3a;"><span id="hp-char-count">0</span>/12</p>
+        </div>
+
+        <!-- Colour swatches -->
+        <div class="anim-in a4 mb-4">
+          <label class="block text-[10px] font-bold tracking-[3px] uppercase mb-2.5" style="color:#666;">Colour</label>
+          <div class="flex flex-wrap gap-2" id="hp-style-swatches"></div>
+        </div>
+
+        <!-- Brand badges -->
+        <div class="anim-in a5 mb-7">
+          <label class="block text-[10px] font-bold tracking-[3px] uppercase mb-2.5" style="color:#666;">Brand Badge</label>
+          <div class="flex flex-wrap gap-2" id="hp-brand-chips"></div>
+        </div>
+
+        <!-- CTA row -->
+        <div class="anim-in a6 flex flex-col sm:flex-row items-start gap-3">
+          <a id="hp-order-btn" href="#" target="_blank" rel="noopener" class="btn-wa px-7 py-4 text-[15px]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Order on WhatsApp
+          </a>
+          <div class="flex flex-col justify-center pt-1">
+            <span class="text-white font-semibold text-sm">Starting ₹799</span>
+            <span class="text-xs" style="color:#555;">Pan-India delivery</span>
           </div>
         </div>
 
-        <!-- Centre plate: Classic White, floating -->
-        <div class="plate-float" style="position:relative; z-index:3; transform:rotate(-2.5deg);">
-          <div class="plate plate-white" style="box-shadow:0 30px 90px rgba(0,0,0,0.98), 0 0 60px rgba(255,215,0,0.12);">
-            <div class="ind"><span style="font-size:15px;">🇮🇳</span><span>IND</span></div>
-            <div class="pt" style="font-size:clamp(24px,4.5vw,44px); padding:clamp(9px,1.5vw,14px) clamp(14px,2vw,20px);">YOUR · NAME</div>
+      </div>
+
+      <!-- ── RIGHT: Live plate preview ── -->
+      <div class="flex-1 flex flex-col items-center justify-center py-8 relative">
+        <!-- Gold glow behind plate -->
+        <div class="pointer-events-none absolute" style="width:380px;height:380px;background:radial-gradient(ellipse,rgba(255,215,0,0.11) 0%,transparent 68%);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+
+        <div class="plate-float" id="hp-plate-wrap" style="transform:rotate(-2.5deg); position:relative; z-index:2;">
+          <div id="hp-plate" class="plate plate-white" style="box-shadow:0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.13);">
+            <!-- Standard mode -->
+            <div class="ind" id="hp-ind"><span style="font-size:15px;">🇮🇳</span><span>IND</span></div>
+            <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">YOUR · NAME</div>
+            <!-- Brand mode (injected as flex-col when active) -->
+            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 32px 12px; gap:2px; width:100%;">
+              <div id="hp-brand-header" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:12px; letter-spacing:4px; text-align:center;"></div>
+              <div id="hp-brand-maintext" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:5px; line-height:1; transition:font-size 0.15s;"></div>
+              <div id="hp-brand-footer" style="font-family:'Rajdhani',sans-serif; font-weight:600; font-size:9px; letter-spacing:3px; text-align:center; opacity:0.65;"></div>
+            </div>
           </div>
         </div>
 
-        <!-- Right plate: Midnight Black, tilted right -->
-        <div style="position:absolute; transform:rotate(8deg) translateX(clamp(90px,19vw,155px)) translateY(8px); z-index:2; opacity:0.86;">
-          <div class="plate plate-black" style="box-shadow:0 20px 60px rgba(0,0,0,0.95);">
-            <div class="pt" style="font-size:clamp(17px,3vw,30px); padding:clamp(8px,1.3vw,13px) clamp(12px,2vw,22px);">YOUR · NAME</div>
-          </div>
-        </div>
+        <p class="mt-8 text-[10px] tracking-[4px] uppercase" style="color:#2e2e2e;">Live Preview</p>
       </div>
 
-      <!-- Subheading -->
-      <div class="anim-in a5">
-        <p class="text-gray-400 text-lg sm:text-xl max-w-lg mx-auto mb-10 leading-relaxed font-light">
-          Any text. Any style. Delivered anywhere in India — starting at just <span class="text-white font-semibold">₹799</span>.
-        </p>
-      </div>
-
-      <!-- CTAs -->
-      <div class="anim-in a6 flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <a href="https://wa.me/918356850938?text=Hi!%20I%20want%20to%20order%20a%20custom%20number%20plate.%20Please%20help%20me%20with%20the%20details."
-          target="_blank" rel="noopener" class="btn-wa px-9 py-4 text-[16px]">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
-          Order on WhatsApp
-        </a>
-        <a href="#styles"
-          class="px-9 py-4 text-[16px] font-semibold rounded-full hover:text-white transition-all"
-          style="border:1px solid rgba(255,215,0,0.4); color:rgba(255,215,0,0.85);">
-          See Styles →
-        </a>
-      </div>
-
-      <p class="anim-in a7 text-gray-600 text-sm font-medium">No hidden charges &nbsp;·&nbsp; Pan-India delivery &nbsp;·&nbsp; 100% customised</p>
     </div>
   </section>
 
@@ -850,32 +1214,41 @@
           </div>
         </div>
 
-        <!-- gallery-8: Ferrari edition -->
-        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+        <!-- gallery-8: Ferrari edition — click to customise -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a] cursor-pointer" style="aspect-ratio:3/4;"
+          onclick="window.applyPreset('red','ferrari','F1 · 1929'); window.scrollTo({top:0,behavior:'smooth'});">
           <img src="gallery-8.jpg" alt="Ferrari F1 1929 custom plate"
             class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
-          <div class="absolute bottom-0 inset-x-0 p-4"
-            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(0,0,0,0.45);">
+            <span class="text-white font-bold text-sm tracking-widest uppercase px-4 py-2 rounded-full" style="background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.5);">Try This Style</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
             <span class="text-white font-semibold text-sm">Ferrari Edition · F1 1929</span>
           </div>
         </div>
 
-        <!-- gallery-9: Porsche edition -->
-        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+        <!-- gallery-9: Porsche edition — click to customise -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a] cursor-pointer" style="aspect-ratio:3/4;"
+          onclick="window.applyPreset('white','porsche','1914 · 12'); window.scrollTo({top:0,behavior:'smooth'});">
           <img src="gallery-9.jpg" alt="Porsche 1914 vintage custom plate"
             class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
-          <div class="absolute bottom-0 inset-x-0 p-4"
-            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(0,0,0,0.45);">
+            <span class="text-white font-bold text-sm tracking-widest uppercase px-4 py-2 rounded-full" style="background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.5);">Try This Style</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
             <span class="text-white font-semibold text-sm">Porsche Edition · 1914</span>
           </div>
         </div>
 
-        <!-- gallery-10: Lamborghini edition -->
-        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a]" style="aspect-ratio:3/4;">
+        <!-- gallery-10: Lamborghini edition — click to customise -->
+        <div class="relative rounded-2xl overflow-hidden group bg-[#1a1a1a] cursor-pointer" style="aspect-ratio:3/4;"
+          onclick="window.applyPreset('white','lamborghini','ITA · LAM'); window.scrollTo({top:0,behavior:'smooth'});">
           <img src="gallery-10.jpg" alt="Lamborghini ITA LAM custom plate"
             class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" />
-          <div class="absolute bottom-0 inset-x-0 p-4"
-            style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(0,0,0,0.45);">
+            <span class="text-white font-bold text-sm tracking-widest uppercase px-4 py-2 rounded-full" style="background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.5);">Try This Style</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 p-4" style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
             <span class="text-white font-semibold text-sm">Lamborghini Edition · ITA LAM</span>
           </div>
         </div>
@@ -1033,10 +1406,7 @@
   <footer class="py-8 px-5 border-t border-white/[0.06]" style="background:#0d0d0d;">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded flex items-center justify-center" style="background:#FFD700;">
-          <span style="font-family:'Anton',sans-serif; color:#0d0d0d; font-size:14px;">S</span>
-        </div>
-        <span class="font-bold text-white text-base">StudioPlated</span>
+        <img src="logo.jpeg" alt="StudioPlated" style="width:28px; height:28px; border-radius:6px; object-fit:cover;" />
       </div>
       <p class="text-gray-600 text-sm">© 2025 StudioPlated. Custom number plates for room décor. Made in India 🇮🇳</p>
       <a href="https://wa.me/918356850938" target="_blank" class="text-sm font-semibold" style="color:#25D366;">+91
@@ -1051,15 +1421,15 @@
       var fallbackBg = document.getElementById('hero-fallback-bg');
       var imgs = photoBg ? photoBg.querySelectorAll('img') : [];
       var loaded = 0;
-      imgs.forEach(function(img) {
-        img.onload = function() {
+      imgs.forEach(function (img) {
+        img.onload = function () {
           loaded++;
           if (loaded === 1) {
             photoBg.style.display = 'block';
             if (fallbackBg) fallbackBg.style.opacity = '0';
           }
         };
-        img.onerror = function() { this.parentNode.style.background = '#111'; };
+        img.onerror = function () { this.parentNode.style.background = '#111'; };
       });
 
       /* Enable staggered entrance animations after first paint */
@@ -1088,6 +1458,175 @@
         ].join(';');
         container.appendChild(p);
       }
+    })();
+  </script>
+
+  <script>
+    // ── Hero Plate Customizer ──
+    (function () {
+      var PLATE_STYLES = [
+        { id: 'white',   label: 'White',   bg: '#f4f2ec', border: '#1a1a1a', textColor: '#111111', hasInd: true  },
+        { id: 'black',   label: 'Black',   bg: '#111111', border: '#444444', textColor: '#FFD700', hasInd: false },
+        { id: 'vintage', label: 'Amber',   bg: '#c8860a', border: '#8b5e0a', textColor: '#1a0800', hasInd: false },
+        { id: 'navy',    label: 'Navy',    bg: '#0f1e3d', border: '#1e3a6e', textColor: '#FFD700', hasInd: false },
+        { id: 'red',     label: 'Red',     bg: '#b91c1c', border: '#7f1d1d', textColor: '#f5f5f5', hasInd: false },
+        { id: 'teal',    label: 'Teal',    bg: '#0d6b8a', border: '#084f66', textColor: '#e8e8e8', hasInd: false },
+        { id: 'yellow',  label: 'Yellow',  bg: '#eab308', border: '#a16207', textColor: '#1a1a1a', hasInd: false },
+        { id: 'green',   label: 'Green',   bg: '#166534', border: '#14532d', textColor: '#f0fdf4', hasInd: false },
+        { id: 'orange',  label: 'Orange',  bg: '#c2410c', border: '#9a3412', textColor: '#fff7ed', hasInd: false },
+      ];
+
+      var BRANDS = [
+        { id: 'none',        label: 'No Badge',    header: '',             footer: ''             },
+        { id: 'ferrari',     label: 'Ferrari',     header: 'FERRARI',      footer: 'MARANELLO'    },
+        { id: 'lamborghini', label: 'Lamborghini', header: 'LAMBORGHINI',  footer: 'ITALY · 1963' },
+        { id: 'porsche',     label: 'Porsche',     header: 'PORSCHE',      footer: 'STUTTGART'    },
+        { id: 'bmw',         label: 'BMW',         header: 'BMW',          footer: 'MÜNCHEN'      },
+        { id: 'mercedes',    label: 'Mercedes',    header: 'MERCEDES',     footer: 'BENZ'         },
+        { id: 'bugatti',     label: 'Bugatti',     header: 'BUGATTI',      footer: 'EB · 1909'    },
+        { id: 'mclaren',     label: 'McLaren',     header: 'McLAREN',      footer: 'WOKING'       },
+        { id: 'rollsroyce',  label: 'Rolls-Royce', header: 'ROLLS-ROYCE',  footer: 'GOODWOOD'     },
+      ];
+
+      var currentStyle = 'white';
+      var currentBrand = 'none';
+      var currentText  = '';
+
+      var input        = document.getElementById('hp-text-input');
+      var counter      = document.getElementById('hp-char-count');
+      var plate        = document.getElementById('hp-plate');
+      var ptEl         = document.getElementById('hp-pt');
+      var indEl        = document.getElementById('hp-ind');
+      var brandInner   = document.getElementById('hp-brand-inner');
+      var brandHeader  = document.getElementById('hp-brand-header');
+      var brandMain    = document.getElementById('hp-brand-maintext');
+      var brandFooter  = document.getElementById('hp-brand-footer');
+      var orderBtn     = document.getElementById('hp-order-btn');
+      var swatchWrap   = document.getElementById('hp-style-swatches');
+      var brandWrap    = document.getElementById('hp-brand-chips');
+
+      // Build colour swatches
+      PLATE_STYLES.forEach(function (s) {
+        var btn = document.createElement('button');
+        btn.dataset.sid = s.id;
+        btn.title = s.label;
+        btn.style.cssText = 'width:36px;height:36px;border-radius:8px;background:' + s.bg + ';border:2.5px solid ' + s.border + ';cursor:pointer;transition:transform 0.12s,box-shadow 0.12s;flex-shrink:0;';
+        btn.addEventListener('click', function () { applyStyle(s.id); });
+        swatchWrap.appendChild(btn);
+      });
+
+      // Build brand chips
+      BRANDS.forEach(function (b) {
+        var btn = document.createElement('button');
+        btn.dataset.bid = b.id;
+        btn.textContent = b.label;
+        btn.style.cssText = 'padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;font-family:Inter,sans-serif;letter-spacing:0.4px;cursor:pointer;transition:all 0.15s;border:1.5px solid rgba(255,255,255,0.12);background:transparent;color:#666;white-space:nowrap;';
+        btn.addEventListener('click', function () { applyBrand(b.id); });
+        brandWrap.appendChild(btn);
+      });
+
+      function getStyle(id) { return PLATE_STYLES.filter(function(x){ return x.id===id; })[0]; }
+      function getBrand(id) { return BRANDS.filter(function(x){ return x.id===id; })[0]; }
+
+      function applyStyle(id) {
+        currentStyle = id;
+        var s = getStyle(id);
+        plate.className = 'plate plate-' + id;
+        plate.style.boxShadow = '0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.13)';
+
+        // Swatch highlight
+        swatchWrap.querySelectorAll('button').forEach(function (el) {
+          var active = el.dataset.sid === id;
+          el.style.transform = active ? 'scale(1.18)' : 'scale(1)';
+          el.style.boxShadow = active ? '0 0 0 2.5px #FFD700' : 'none';
+        });
+
+        renderPreview();
+        updateWhatsApp();
+      }
+
+      function applyBrand(id) {
+        currentBrand = id;
+
+        // Chip highlight
+        brandWrap.querySelectorAll('button').forEach(function (el) {
+          var active = el.dataset.bid === id;
+          el.style.background = active ? 'rgba(255,215,0,0.1)' : 'transparent';
+          el.style.borderColor = active ? 'rgba(255,215,0,0.5)' : 'rgba(255,255,255,0.12)';
+          el.style.color = active ? '#FFD700' : '#666';
+        });
+
+        renderPreview();
+        updateWhatsApp();
+      }
+
+      function renderPreview() {
+        var s = getStyle(currentStyle);
+        var b = getBrand(currentBrand);
+        var txt = currentText || 'YOUR · NAME';
+        var tc = s ? s.textColor : '#111';
+
+        if (!b || b.id === 'none') {
+          // Standard mode
+          indEl.style.display = (s && s.hasInd) ? '' : 'none';
+          ptEl.style.display = '';
+          brandInner.style.display = 'none';
+          ptEl.textContent = txt;
+          var len = currentText.length;
+          ptEl.style.fontSize = (len <= 6 ? 46 : len <= 9 ? 36 : 28) + 'px';
+        } else {
+          // Brand mode
+          indEl.style.display = 'none';
+          ptEl.style.display = 'none';
+          brandInner.style.display = 'flex';
+          brandHeader.textContent = b.header;
+          brandFooter.textContent = b.footer;
+          brandMain.textContent = txt;
+          var blen = currentText.length;
+          brandMain.style.fontSize = (blen <= 6 ? 38 : blen <= 9 ? 30 : 22) + 'px';
+          // Apply text colour from current plate style
+          brandHeader.style.color = tc;
+          brandMain.style.color = tc;
+          brandFooter.style.color = tc;
+        }
+      }
+
+      function updateWhatsApp() {
+        var s = getStyle(currentStyle);
+        var b = getBrand(currentBrand);
+        var styleName = s ? s.label : 'White';
+        var brandName = (b && b.id !== 'none') ? b.label + ' edition, ' : '';
+        var text = currentText || 'YOUR NAME';
+        var msg = 'Hi! I want to order a custom number plate from StudioPlated.\n' +
+                  'Style: ' + styleName + '\n' +
+                  (brandName ? 'Brand: ' + b.label + '\n' : '') +
+                  'Text: ' + text + '\nPrice: ₹799\nPlease help me with the details.';
+        orderBtn.href = 'https://wa.me/918356850938?text=' + encodeURIComponent(msg);
+      }
+
+      input.addEventListener('input', function () {
+        this.value = this.value.toUpperCase();
+        currentText = this.value.slice(0, 12);
+        counter.textContent = currentText.length;
+        renderPreview();
+        updateWhatsApp();
+      });
+
+      input.addEventListener('focus', function () { this.style.borderColor = 'rgba(255,215,0,0.45)'; });
+      input.addEventListener('blur',  function () { this.style.borderColor = 'rgba(255,255,255,0.1)';  });
+
+      // Expose preset loader for gallery click-throughs
+      window.applyPreset = function (styleId, brandId, text) {
+        input.value = text.toUpperCase();
+        currentText = text.toUpperCase().slice(0, 12);
+        counter.textContent = currentText.length;
+        applyStyle(styleId);
+        applyBrand(brandId);
+      };
+
+      // Init
+      applyStyle('white');
+      applyBrand('none');
     })();
   </script>
 </body>
