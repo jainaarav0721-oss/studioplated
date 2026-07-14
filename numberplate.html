@@ -1619,7 +1619,7 @@
 
         if (!b || b.id === 'none') {
           // Standard mode
-          indEl.style.display = (s && s.hasInd) ? '' : 'none';
+          indEl.style.display = '';
           ptEl.style.display = '';
           brandInner.style.display = 'none';
           ptEl.textContent = txt;
@@ -1628,7 +1628,7 @@
           ptEl.style.fontWeight = isBold ? '900' : '700';
         } else {
           // Brand mode: split text at first space for left/right
-          indEl.style.display = (s && s.hasInd) ? '' : 'none';
+          indEl.style.display = '';
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
 
