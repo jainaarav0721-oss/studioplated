@@ -846,7 +846,7 @@
               <span style="font-size:9px;font-family:Inter,sans-serif;font-weight:700;letter-spacing:1px; text-transform:uppercase;">Bold</span>
             </button>
           </div>
-          <input id="hp-text-input" type="text" maxlength="12" placeholder="AARAV · 07"
+          <input id="hp-text-input" type="text" maxlength="12" placeholder="FERRARI"
             autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
             class="w-full rounded-lg px-4 py-3.5 text-white text-xl font-bold uppercase tracking-widest focus:outline-none transition-all"
             style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); font-family:'Rajdhani',sans-serif; letter-spacing:6px;" />
@@ -889,7 +889,7 @@
         <div class="plate-float" id="hp-plate-wrap" style="transform:rotate(-2.5deg); position:relative; z-index:2;">
           <div id="hp-plate" class="plate plate-white" style="box-shadow:0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.13);">
             <!-- Standard mode -->
-            <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">YOUR · NAME</div>
+            <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">FERRARI</div>
             <!-- Brand mode -->
             <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 28px 12px; gap:3px; width:100%;">
               <div id="hp-brand-header" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:11px; letter-spacing:4px; text-align:center;"></div>
@@ -1072,7 +1072,7 @@
             <div style="font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#333; margin-bottom:14px;">Live Preview</div>
             <!-- Mini plate -->
             <div style="background:#f4f2ec; border:3px solid #1a1a1a; border-radius:6px; padding:12px 20px; text-align:center; margin-bottom:18px;">
-              <div style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:26px; letter-spacing:6px; color:#111; line-height:1;">AARAV · 07</div>
+              <div style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:26px; letter-spacing:6px; color:#111; line-height:1;">FERRARI</div>
             </div>
             <!-- Swatches -->
             <div style="display:flex; gap:7px; margin-bottom:18px;">
@@ -1084,7 +1084,7 @@
               <div style="width:22px;height:22px;border-radius:50%;background:#eab308;"></div>
             </div>
             <!-- Fake input -->
-            <div style="background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px; font-family:'Rajdhani',sans-serif; font-size:14px; letter-spacing:3px; color:#888;">AARAV · 07<span style="display:inline-block;width:2px;height:14px;background:#FFD700;margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></div>
+            <div style="background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px; font-family:'Rajdhani',sans-serif; font-size:14px; letter-spacing:3px; color:#888;">FERRARI<span style="display:inline-block;width:2px;height:14px;background:#FFD700;margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></div>
           </div>
         </div>
 
@@ -1126,7 +1126,7 @@
             <div style="display:flex; flex-direction:column; gap:10px;">
               <div style="background:#005c4b; border-radius:10px 10px 2px 10px; padding:10px 12px; align-self:flex-end;">
                 <div style="background:#f4f2ec; border-radius:4px; padding:7px 12px; margin-bottom:6px; text-align:center;">
-                  <div style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:14px; letter-spacing:4px; color:#111;">AARAV · 07</div>
+                  <div style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:14px; letter-spacing:4px; color:#111;">FERRARI</div>
                 </div>
                 <div style="font-size:10px; color:rgba(233,237,239,0.7);">Style: White · ₹799</div>
                 <div style="font-size:9px; color:rgba(233,237,239,0.4); text-align:right; margin-top:4px;">12:47 ✓✓</div>
@@ -1713,7 +1713,7 @@
       function renderPreview() {
         var s = getStyle(currentStyle);
         var b = getBrand(currentBrand);
-        var txt = currentText || 'YOUR · NAME';
+        var txt = currentText || 'FERRARI';
         var tc = s ? s.textColor : '#111';
 
         var fw = isBold ? '900' : '700';
@@ -1731,7 +1731,7 @@
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
 
-          var mainTxt = currentText || 'YOUR NAME';
+          var mainTxt = currentText || 'FERRARI';
           var mlen    = mainTxt.length;
           brandHeader.textContent   = b.header;
           brandMaintext.textContent = mainTxt;
@@ -1757,7 +1757,7 @@
         var s = getStyle(currentStyle);
         var b = getBrand(currentBrand);
         var styleName = s ? s.label : 'White';
-        var text = currentText || 'YOUR NAME';
+        var text = currentText || 'FERRARI';
         return 'Hi! I want to order a custom number plate from StudioPlated.\n' +
                'Style: ' + styleName + '\n' +
                ((b && b.id !== 'none') ? 'Brand: ' + b.label + '\n' : '') +
