@@ -890,9 +890,13 @@
             <div class="ind" id="hp-ind"><span style="font-size:15px;">🇮🇳</span><span>IND</span></div>
             <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">YOUR · NAME</div>
             <!-- Brand mode (injected as flex-col when active) -->
-            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 32px 12px; gap:2px; width:100%;">
-              <div id="hp-brand-header" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:12px; letter-spacing:4px; text-align:center;"></div>
-              <div id="hp-brand-maintext" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:5px; line-height:1; transition:font-size 0.15s;"></div>
+            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 20px 12px; gap:3px; width:100%;">
+              <div id="hp-brand-header" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:11px; letter-spacing:4px; text-align:center;"></div>
+              <div style="display:flex; align-items:center; justify-content:center; gap:10px; width:100%;">
+                <div id="hp-brand-left" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:4px; line-height:1; transition:font-size 0.15s; text-align:right; flex:1;"></div>
+                <div id="hp-brand-logo" style="width:42px; height:42px; flex-shrink:0; display:flex; align-items:center; justify-content:center;"></div>
+                <div id="hp-brand-right" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:4px; line-height:1; transition:font-size 0.15s; text-align:left; flex:1;"></div>
+              </div>
               <div id="hp-brand-footer" style="font-family:'Rajdhani',sans-serif; font-weight:600; font-size:9px; letter-spacing:3px; text-align:center; opacity:0.65;"></div>
             </div>
           </div>
@@ -1511,7 +1515,9 @@
       var indEl        = document.getElementById('hp-ind');
       var brandInner   = document.getElementById('hp-brand-inner');
       var brandHeader  = document.getElementById('hp-brand-header');
-      var brandMain    = document.getElementById('hp-brand-maintext');
+      var brandLeft    = document.getElementById('hp-brand-left');
+      var brandLogo    = document.getElementById('hp-brand-logo');
+      var brandRight   = document.getElementById('hp-brand-right');
       var brandFooter  = document.getElementById('hp-brand-footer');
       var orderBtn     = document.getElementById('hp-order-btn');
       var swatchWrap   = document.getElementById('hp-style-swatches');
@@ -1590,18 +1596,30 @@
           var len = currentText.length;
           ptEl.style.fontSize = (len <= 6 ? 46 : len <= 9 ? 36 : 28) + 'px';
         } else {
-          // Brand mode
+          // Brand mode: split text at first space for left/right
           indEl.style.display = 'none';
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
+
+          var parts = (currentText || 'YOUR NAME').split(' ');
+          var leftTxt  = parts[0] || 'YOUR';
+          var rightTxt = parts.slice(1).join(' ') || 'NAME';
+          var fsize = (Math.max(leftTxt.length, rightTxt.length) <= 4 ? 28 : 22) + 'px';
+
           brandHeader.textContent = b.header;
+          brandLeft.textContent   = leftTxt;
+          brandRight.textContent  = rightTxt;
           brandFooter.textContent = b.footer;
-          brandMain.textContent = txt;
-          var blen = currentText.length;
-          brandMain.style.fontSize = (blen <= 6 ? 38 : blen <= 9 ? 30 : 22) + 'px';
-          // Apply text colour from current plate style
+          brandLeft.style.fontSize  = fsize;
+          brandRight.style.fontSize = fsize;
+
+          // Inject SVG logo onto the plate (larger, coloured to match plate text)
+          var logoSvg = (BRAND_SVGS[b.id] || '').replace(/currentColor/g, tc);
+          brandLogo.innerHTML = '<div style="width:42px;height:42px;color:' + tc + ';">' + logoSvg + '</div>';
+
           brandHeader.style.color = tc;
-          brandMain.style.color = tc;
+          brandLeft.style.color   = tc;
+          brandRight.style.color  = tc;
           brandFooter.style.color = tc;
         }
       }
