@@ -1632,10 +1632,10 @@
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
 
-          var parts = (currentText || 'YOUR NAME').split(' ');
-          var leftTxt  = parts[0] || 'YOUR';
-          var rightTxt = parts.slice(1).join(' ') || 'NAME';
-          var fsize = (Math.max(leftTxt.length, rightTxt.length) <= 4 ? 28 : 22) + 'px';
+          var parts    = currentText ? currentText.split(' ') : [];
+          var leftTxt  = parts[0]  || 'YOUR';
+          var rightTxt = parts.length > 1 ? parts.slice(1).join(' ') : (currentText ? '' : 'NAME');
+          var fsize    = (Math.max(leftTxt.length, (rightTxt || '').length) <= 4 ? 28 : 22) + 'px';
 
           var fw = isBold ? '900' : '700';
           brandHeader.textContent = b.header;
@@ -1646,6 +1646,9 @@
           brandRight.style.fontSize   = fsize;
           brandLeft.style.fontWeight  = fw;
           brandRight.style.fontWeight = fw;
+          // Single word: hide right side, text left-aligned, logo pushed to far right
+          brandRight.style.display   = rightTxt ? '' : 'none';
+          brandLeft.style.textAlign  = rightTxt ? 'right' : 'left';
 
           // Inject real logo onto the plate, filtered to match plate text colour
           var logoContent = chipContent(b, 42);
