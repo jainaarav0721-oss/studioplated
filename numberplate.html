@@ -894,7 +894,7 @@
 
         <div class="plate-float" id="hp-plate-wrap" style="transform:rotate(-2.5deg); position:relative; z-index:2;">
           <!-- Plate frame / surround -->
-          <div style="padding:10px 14px; border-radius:10px; background:linear-gradient(145deg,#2a2a2a,#1a1a1a); border:1.5px solid rgba(255,255,255,0.12); box-shadow:0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.12), inset 0 1px 0 rgba(255,255,255,0.08);">
+          <div id="hp-plate-frame" style="padding:4px 6px; border-radius:8px; background:transparent; border:2px solid #111111; box-shadow:0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.12);">
             <div id="hp-plate" class="plate plate-white" style="box-shadow:0 2px 12px rgba(0,0,0,0.6);">
               <!-- Standard mode -->
               <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">YOUR · NAME</div>
@@ -1574,6 +1574,10 @@
         var s = getStyle(id);
         plate.className = 'plate plate-' + id;
         plate.style.boxShadow = '0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.13)';
+
+        // Frame matches plate text color
+        var frame = document.getElementById('hp-plate-frame');
+        if (frame && s) { frame.style.borderColor = s.textColor; }
 
         // Swatch highlight
         swatchWrap.querySelectorAll('button').forEach(function (el) {
