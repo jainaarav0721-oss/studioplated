@@ -8,6 +8,7 @@
   <meta name="description"
     content="Order personalised number plates for your bedroom, studio, or man cave. Starting ₹799. Any text, any style. Order on WhatsApp." />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Anton&family=Bebas+Neue&family=Rajdhani:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet" />
@@ -873,12 +874,12 @@
 
         <!-- CTA row -->
         <div class="anim-in a6 flex flex-col sm:flex-row items-start gap-3">
-          <a id="hp-order-btn" href="#" target="_blank" rel="noopener" class="btn-wa px-7 py-4 text-[15px]">
+          <button id="hp-order-btn" onclick="window.orderWithImage()" class="btn-wa px-7 py-4 text-[15px]" style="cursor:pointer;">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="white">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
             Order on WhatsApp
-          </a>
+          </button>
           <div class="flex flex-col justify-center pt-1">
             <span class="text-white font-semibold text-sm">Starting ₹799</span>
             <span class="text-xs" style="color:#555;">Pan-India delivery</span>
@@ -1024,76 +1025,76 @@
   </section>
 
   <!-- ═══════════════════════════════════ HOW IT WORKS ═══════════════════════════════════ -->
-  <section id="how" class="py-24 px-5 bg-[#0d0d0d] dot-grid relative overflow-hidden">
-    <!-- Glow -->
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] pointer-events-none"
-      style="background:radial-gradient(ellipse,rgba(255,215,0,0.05) 0%,transparent 70%);"></div>
+  <section id="how" class="py-28 px-5 bg-[#0d0d0d] relative overflow-hidden">
+    <!-- Ambient glow -->
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(255,215,0,0.04) 0%,transparent 70%);"></div>
 
-    <div class="relative max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-xs font-bold tracking-[4px] uppercase mb-3" style="color:#FFD700;">3 Simple Steps</p>
-        <h2
-          style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1; letter-spacing:2px;"
-          class="text-white">How to Order</h2>
+    <div class="relative max-w-6xl mx-auto">
+
+      <!-- Header -->
+      <div class="mb-20">
+        <p class="text-xs font-bold tracking-[5px] uppercase mb-4" style="color:#FFD700;">The Process</p>
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,5.5rem); line-height:0.95; letter-spacing:1px;" class="text-white">
+            Three steps.<br><span style="color:#FFD700;">That's all.</span>
+          </h2>
+          <p class="text-gray-500 text-base max-w-xs leading-relaxed md:text-right">From customiser to your door — the whole thing happens on WhatsApp. No forms, no accounts.</p>
+        </div>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
+      <!-- Steps -->
+      <div class="grid md:grid-cols-3 gap-px" style="background:rgba(255,255,255,0.06); border-radius:16px; overflow:hidden;">
 
-        <div class="relative">
-          <div
-            style="font-family:'Bebas Neue',sans-serif; font-size:96px; line-height:1; color:#FFD700; opacity:0.08; position:absolute; top:-10px; left:0; pointer-events:none;">
-            01</div>
-          <div class="relative pt-12 pl-1">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-              style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2);">
-              <svg class="w-6 h-6" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        <div class="relative p-10 group" style="background:#111;">
+          <div class="flex items-start justify-between mb-10">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:4px; color:#FFD700;">01</span>
+            <div class="w-10 h-10 rounded-full flex items-center justify-center" style="border:1px solid rgba(255,215,0,0.2);">
+              <svg class="w-4 h-4" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/>
               </svg>
             </div>
-            <h3 class="text-white font-bold text-xl mb-2">Message Us</h3>
-            <p class="text-gray-500 leading-relaxed">Drop us a WhatsApp with your text, style preference, and any
-              special requests. We'll confirm and get started.</p>
+          </div>
+          <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1px; line-height:1;" class="text-white mb-3">Design It</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Use the live customiser above. Pick your colour, your text, your brand badge. When you're happy, hit Order.</p>
+          <div class="mt-8 pt-8 border-t border-white/[0.06]">
+            <span class="text-[11px] font-bold tracking-[3px] uppercase" style="color:#333;">Takes 2 minutes</span>
           </div>
         </div>
 
-        <div class="relative">
-          <div
-            style="font-family:'Bebas Neue',sans-serif; font-size:96px; line-height:1; color:#FFD700; opacity:0.08; position:absolute; top:-10px; left:0; pointer-events:none;">
-            02</div>
-          <div class="relative pt-12 pl-1">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-              style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2);">
-              <svg class="w-6 h-6" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+        <div class="relative p-10" style="background:#111;">
+          <div class="flex items-start justify-between mb-10">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:4px; color:#FFD700;">02</span>
+            <div class="w-10 h-10 rounded-full flex items-center justify-center" style="border:1px solid rgba(255,215,0,0.2);">
+              <svg class="w-4 h-4" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"/>
               </svg>
             </div>
-            <h3 class="text-white font-bold text-xl mb-2">Make Payment</h3>
-            <p class="text-gray-500 leading-relaxed">Pay ₹799 (or quoted amount) via UPI, GPay, or any method you
-              prefer. Fast, secure, and hassle-free.</p>
+          </div>
+          <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1px; line-height:1;" class="text-white mb-3">Pay Once</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">₹799, flat. Pay via UPI, GPay, or any method you prefer — directly on WhatsApp. No hidden charges.</p>
+          <div class="mt-8 pt-8 border-t border-white/[0.06]">
+            <span class="text-[11px] font-bold tracking-[3px] uppercase" style="color:#333;">UPI · GPay · Any method</span>
           </div>
         </div>
 
-        <div class="relative">
-          <div
-            style="font-family:'Bebas Neue',sans-serif; font-size:96px; line-height:1; color:#FFD700; opacity:0.08; position:absolute; top:-10px; left:0; pointer-events:none;">
-            03</div>
-          <div class="relative pt-12 pl-1">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-              style="background:rgba(255,215,0,0.1); border:1px solid rgba(255,215,0,0.2);">
-              <svg class="w-6 h-6" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+        <div class="relative p-10" style="background:#111;">
+          <div class="flex items-start justify-between mb-10">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:4px; color:#FFD700;">03</span>
+            <div class="w-10 h-10 rounded-full flex items-center justify-center" style="border:1px solid rgba(255,215,0,0.2);">
+              <svg class="w-4 h-4" fill="none" stroke="#FFD700" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/>
               </svg>
             </div>
-            <h3 class="text-white font-bold text-xl mb-2">Receive It</h3>
-            <p class="text-gray-500 leading-relaxed">Your custom plate is crafted and shipped across India. Delivered
-              right to your door in 5–7 working days.</p>
+          </div>
+          <h3 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:1px; line-height:1;" class="text-white mb-3">Receive It</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Your plate is handcrafted and shipped across India. Arrives at your door in 5–7 working days, packaged securely.</p>
+          <div class="mt-8 pt-8 border-t border-white/[0.06]">
+            <span class="text-[11px] font-bold tracking-[3px] uppercase" style="color:#333;">Pan-India delivery</span>
           </div>
         </div>
 
       </div>
+
     </div>
   </section>
 
@@ -1107,12 +1108,12 @@
         <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-3">Simple. No Surprises.</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
 
         <!-- Base -->
         <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
-          <h3 class="font-bold text-gray-900 text-lg mb-1">Standard Plate</h3>
-          <p class="text-gray-400 text-sm mb-6">Up to 8 characters, any style</p>
+          <h3 class="font-bold text-gray-900 text-lg mb-1">Custom Plate</h3>
+          <p class="text-gray-400 text-sm mb-6">Any text, any style</p>
           <div class="text-4xl font-black text-gray-900 mb-1">₹799</div>
           <p class="text-gray-400 text-sm mb-8">+ shipping</p>
           <ul class="space-y-3 text-sm text-gray-600">
@@ -1121,39 +1122,13 @@
                 style="background:#FFD700;">✓</span> Any text or numbers</li>
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                style="background:#FFD700;">✓</span> Choose your style</li>
+                style="background:#FFD700;">✓</span> 9 colour styles</li>
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                style="background:#FFD700;">✓</span> Standard size plate</li>
+                style="background:#FFD700;">✓</span> Car brand edition</li>
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                 style="background:#FFD700;">✓</span> Pan-India delivery</li>
-          </ul>
-        </div>
-
-        <!-- Add-ons -->
-        <div class="rounded-2xl p-8 text-white relative overflow-hidden" style="background:#0d0d0d;">
-          <div class="absolute top-0 right-0 px-3 py-1 text-[11px] font-bold tracking-widest uppercase rounded-bl-xl"
-            style="background:#FFD700; color:#0d0d0d;">Popular</div>
-          <h3 class="font-bold text-white text-lg mb-1">Custom Add-ons</h3>
-          <p class="text-gray-400 text-sm mb-6">Make it extra personal</p>
-          <ul class="space-y-4 text-sm text-gray-300">
-            <li class="flex items-center justify-between border-b border-white/10 pb-3">
-              <span>Extra characters (9–12)</span>
-              <span class="font-bold text-white">+₹100</span>
-            </li>
-            <li class="flex items-center justify-between border-b border-white/10 pb-3">
-              <span>Custom border / frame</span>
-              <span class="font-bold text-white">+₹100</span>
-            </li>
-            <li class="flex items-center justify-between border-b border-white/10 pb-3">
-              <span>Larger plate size</span>
-              <span class="font-bold text-white">+₹150</span>
-            </li>
-            <li class="flex items-center justify-between pb-1">
-              <span>Special symbols / logo</span>
-              <span class="font-bold text-white">+₹50</span>
-            </li>
           </ul>
         </div>
 
@@ -1175,7 +1150,7 @@
               <span class="font-bold text-gray-900">5–7 days</span>
             </li>
           </ul>
-          <p class="text-xs text-gray-400 mt-5 leading-relaxed">Free shipping on orders above ₹1,500 🎉</p>
+          <p class="text-xs text-gray-400 mt-5 leading-relaxed">Free shipping on orders above ₹1,500.</p>
         </div>
 
       </div>
@@ -1345,7 +1320,7 @@
             <span class="faq-icon text-gray-400 text-xl font-light ml-4">+</span>
           </summary>
           <p class="px-5 pb-5 text-gray-500 text-sm leading-relaxed">Yes! Any letters, numbers, names, initials, words,
-            or short phrases. Standard price covers up to 8 characters including spaces. Add-on charges apply for more.
+            or short phrases. Up to 12 characters supported — just type it in the customiser to see how it looks.
           </p>
         </details>
 
@@ -1649,18 +1624,50 @@
         }
       }
 
-      function updateWhatsApp() {
+      function buildOrderMsg() {
         var s = getStyle(currentStyle);
         var b = getBrand(currentBrand);
         var styleName = s ? s.label : 'White';
-        var brandName = (b && b.id !== 'none') ? b.label + ' edition, ' : '';
         var text = currentText || 'YOUR NAME';
-        var msg = 'Hi! I want to order a custom number plate from StudioPlated.\n' +
-                  'Style: ' + styleName + '\n' +
-                  (brandName ? 'Brand: ' + b.label + '\n' : '') +
-                  'Text: ' + text + '\nPrice: ₹799\nPlease help me with the details.';
-        orderBtn.href = 'https://wa.me/918356850938?text=' + encodeURIComponent(msg);
+        return 'Hi! I want to order a custom number plate from StudioPlated.\n' +
+               'Style: ' + styleName + '\n' +
+               ((b && b.id !== 'none') ? 'Brand: ' + b.label + '\n' : '') +
+               'Text: ' + text + '\nPrice: ₹799\nPlease confirm my order.';
       }
+
+      function updateWhatsApp() {}  // kept for compatibility; button now uses orderWithImage
+
+      window.orderWithImage = async function () {
+        var msg = buildOrderMsg();
+        var waUrl = 'https://wa.me/918356850938?text=' + encodeURIComponent(msg);
+        var plateEl = document.getElementById('hp-plate-wrap');
+
+        try {
+          var canvas = await html2canvas(plateEl, {
+            backgroundColor: null,
+            scale: 2,
+            useCORS: true,
+            logging: false
+          });
+          canvas.toBlob(async function (blob) {
+            var file = new File([blob], 'my-plate.png', { type: 'image/png' });
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+              // Mobile: native share sheet with image + text
+              await navigator.share({ files: [file], text: msg });
+            } else {
+              // Desktop: download image then open WhatsApp
+              var a = document.createElement('a');
+              a.href = URL.createObjectURL(blob);
+              a.download = 'my-plate.png';
+              a.click();
+              window.open(waUrl, '_blank');
+            }
+          }, 'image/png');
+        } catch (e) {
+          // Fallback: just open WhatsApp
+          window.open(waUrl, '_blank');
+        }
+      };
 
       input.addEventListener('input', function () {
         this.value = this.value.toUpperCase();
