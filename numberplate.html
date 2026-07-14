@@ -895,16 +895,11 @@
         <div class="plate-float" id="hp-plate-wrap" style="transform:rotate(-2.5deg); position:relative; z-index:2;">
           <div id="hp-plate" class="plate plate-white" style="box-shadow:0 40px 100px rgba(0,0,0,0.98), 0 0 70px rgba(255,215,0,0.13);">
             <!-- Standard mode -->
-            <div id="hp-ind" style="background:#003090;color:white;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:9px;letter-spacing:0.5px;padding:5px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;align-self:stretch;border-right:2px solid rgba(0,0,0,0.25);line-height:1.3;"><span style="font-size:15px;">🇮🇳</span><span>IND</span></div>
             <div class="pt" id="hp-pt" style="font-size:clamp(26px,4.5vw,48px); padding:14px 28px; transition:font-size 0.15s;">YOUR · NAME</div>
-            <!-- Brand mode (injected as flex-col when active) -->
-            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 20px 12px; gap:3px; width:100%;">
+            <!-- Brand mode -->
+            <div id="hp-brand-inner" style="display:none; flex-direction:column; align-items:center; padding:10px 28px 12px; gap:4px; width:100%;">
               <div id="hp-brand-header" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:11px; letter-spacing:4px; text-align:center;"></div>
-              <div style="display:flex; align-items:center; justify-content:center; gap:10px; width:100%;">
-                <div id="hp-brand-left" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:4px; line-height:1; transition:font-size 0.15s; text-align:right; flex:1;"></div>
-                <div id="hp-brand-logo" style="width:42px; height:42px; flex-shrink:0; display:flex; align-items:center; justify-content:center;"></div>
-                <div id="hp-brand-right" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:4px; line-height:1; transition:font-size 0.15s; text-align:left; flex:1;"></div>
-              </div>
+              <div id="hp-brand-maintext" style="font-family:'Rajdhani',sans-serif; font-weight:700; letter-spacing:5px; line-height:1; transition:font-size 0.15s; text-align:center;"></div>
               <div id="hp-brand-footer" style="font-family:'Rajdhani',sans-serif; font-weight:600; font-size:9px; letter-spacing:3px; text-align:center; opacity:0.65;"></div>
             </div>
           </div>
@@ -1537,13 +1532,10 @@
       var counter      = document.getElementById('hp-char-count');
       var plate        = document.getElementById('hp-plate');
       var ptEl         = document.getElementById('hp-pt');
-      var indEl        = document.getElementById('hp-ind');
-      var brandInner   = document.getElementById('hp-brand-inner');
-      var brandHeader  = document.getElementById('hp-brand-header');
-      var brandLeft    = document.getElementById('hp-brand-left');
-      var brandLogo    = document.getElementById('hp-brand-logo');
-      var brandRight   = document.getElementById('hp-brand-right');
-      var brandFooter  = document.getElementById('hp-brand-footer');
+      var brandInner    = document.getElementById('hp-brand-inner');
+      var brandHeader   = document.getElementById('hp-brand-header');
+      var brandMaintext = document.getElementById('hp-brand-maintext');
+      var brandFooter   = document.getElementById('hp-brand-footer');
       var orderBtn     = document.getElementById('hp-order-btn');
       var swatchWrap   = document.getElementById('hp-style-swatches');
       var brandWrap    = document.getElementById('hp-brand-chips');
@@ -1617,47 +1609,31 @@
         var txt = currentText || 'YOUR · NAME';
         var tc = s ? s.textColor : '#111';
 
+        var fw = isBold ? '900' : '700';
+
         if (!b || b.id === 'none') {
           // Standard mode
-          indEl.style.display = '';
           ptEl.style.display = '';
           brandInner.style.display = 'none';
-          ptEl.textContent = txt;
+          ptEl.textContent  = txt;
           var len = currentText.length;
           ptEl.style.fontSize   = (len <= 6 ? 46 : len <= 9 ? 36 : 28) + 'px';
-          ptEl.style.fontWeight = isBold ? '900' : '700';
+          ptEl.style.fontWeight = fw;
         } else {
-          // Brand mode: split text at first space for left/right
-          indEl.style.display = '';
+          // Brand mode: header / text / footer, no logo on plate
           ptEl.style.display = 'none';
           brandInner.style.display = 'flex';
 
-          var parts    = currentText ? currentText.split(' ') : [];
-          var leftTxt  = parts[0]  || 'YOUR';
-          var rightTxt = parts.length > 1 ? parts.slice(1).join(' ') : (currentText ? '' : 'NAME');
-          var fsize    = (Math.max(leftTxt.length, (rightTxt || '').length) <= 4 ? 28 : 22) + 'px';
-
-          var fw = isBold ? '900' : '700';
-          brandHeader.textContent = b.header;
-          brandLeft.textContent   = leftTxt;
-          brandRight.textContent  = rightTxt;
-          brandFooter.textContent = b.footer;
-          brandLeft.style.fontSize    = fsize;
-          brandRight.style.fontSize   = fsize;
-          brandLeft.style.fontWeight  = fw;
-          brandRight.style.fontWeight = fw;
-          // Single word: hide right side, text left-aligned, logo pushed to far right
-          brandRight.style.display   = rightTxt ? '' : 'none';
-          brandLeft.style.textAlign  = rightTxt ? 'right' : 'left';
-
-          // Inject real logo onto the plate, filtered to match plate text colour
-          var logoContent = chipContent(b, 42);
-          brandLogo.innerHTML = '<div style="width:42px;height:42px;filter:' + filterFor(tc) + ';">' + logoContent + '</div>';
-
-          brandHeader.style.color = tc;
-          brandLeft.style.color   = tc;
-          brandRight.style.color  = tc;
-          brandFooter.style.color = tc;
+          var mainTxt = currentText || 'YOUR NAME';
+          var mlen    = mainTxt.length;
+          brandHeader.textContent   = b.header;
+          brandMaintext.textContent = mainTxt;
+          brandFooter.textContent   = b.footer;
+          brandMaintext.style.fontSize   = (mlen <= 6 ? 34 : mlen <= 9 ? 28 : 22) + 'px';
+          brandMaintext.style.fontWeight = fw;
+          brandHeader.style.color   = tc;
+          brandMaintext.style.color = tc;
+          brandFooter.style.color   = tc;
         }
       }
 
