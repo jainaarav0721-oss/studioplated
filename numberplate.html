@@ -1953,20 +1953,19 @@
         }
       };
 
-      // ── Shopify checkout, carrying the customer's plate text/style/bold as line item properties ──
-      var SHOPIFY_DOMAIN = 'w1i5ea-x5.myshopify.com';
+      // ── Shopify checkout, carrying the customer's plate text/style/bold as cart line attributes ──
+      // Uses the Storefront GraphQL Cart API directly (the older Checkout API / JS Buy SDK
+      // client.checkout.create() has been removed by Shopify and no longer works).
+      var SHOPIFY_STOREFRONT_ENDPOINT = 'https://w1i5ea-x5.myshopify.com/api/2024-01/graphql.json';
       var SHOPIFY_STOREFRONT_TOKEN = '1117c51e829b95de96d89cfdba76fde9';
       var SHOPIFY_VARIANT_ID = 'gid://shopify/ProductVariant/48332264210650';
-      var shopifyClient = null;
 
-      function loadShopifyBuySdk(cb) {
-        if (window.ShopifyBuy) return cb();
-        var script = document.createElement('script');
-        script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-        script.onload = cb;
-        script.onerror = function () { cb(new Error('Could not load Shopify checkout script')); };
-        document.head.appendChild(script);
-      }
+      var CART_CREATE_MUTATION = 'mutation cartCreate($input: CartInput!) {' +
+        ' cartCreate(input: $input) {' +
+        '   cart { checkoutUrl }' +
+        '   userErrors { field message }' +
+        ' }' +
+        '}';
 
       window.startShopifyCheckout = function () {
         var btn = document.getElementById('hp-checkout-btn');
@@ -1977,48 +1976,63 @@
         statusEl.textContent = '';
         statusEl.style.color = '#555';
 
-        loadShopifyBuySdk(function (err) {
-          if (err) {
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            btn.textContent = 'Order Now — ₹990';
-            statusEl.textContent = 'Could not start checkout — check your connection and try again.';
-            statusEl.style.color = '#e05252';
-            return;
-          }
+        function showError(msg) {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          btn.textContent = 'Order Now — ₹990';
+          statusEl.textContent = msg;
+          statusEl.style.color = '#e05252';
+        }
 
-          if (!shopifyClient) {
-            shopifyClient = ShopifyBuy.buildClient({
-              domain: SHOPIFY_DOMAIN,
-              storefrontAccessToken: SHOPIFY_STOREFRONT_TOKEN,
-            });
-          }
+        var s = getStyle(currentStyle);
+        var styleName = s ? s.label : 'White';
+        var plateText = currentText || 'FERRARI';
 
-          var s = getStyle(currentStyle);
-          var styleName = s ? s.label : 'White';
-          var plateText = currentText || 'FERRARI';
-
-          shopifyClient.checkout.create({
-            lineItems: [{
-              variantId: SHOPIFY_VARIANT_ID,
-              quantity: 1,
-              customAttributes: [
-                { key: 'Plate Text', value: plateText },
-                { key: 'Style', value: styleName },
-                { key: 'Bold Lettering', value: isBold ? 'Yes' : 'No' },
-              ],
-            }],
-          }).then(function (checkout) {
-            window.location.href = checkout.webUrl;
-          }).catch(function (checkoutErr) {
-            console.error('Shopify checkout error:', checkoutErr);
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            btn.textContent = 'Order Now — ₹990';
-            statusEl.textContent = 'Something went wrong starting checkout — please try again.';
-            statusEl.style.color = '#e05252';
+        fetch(SHOPIFY_STOREFRONT_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
+          },
+          body: JSON.stringify({
+            query: CART_CREATE_MUTATION,
+            variables: {
+              input: {
+                lines: [{
+                  merchandiseId: SHOPIFY_VARIANT_ID,
+                  quantity: 1,
+                  attributes: [
+                    { key: 'Plate Text', value: plateText },
+                    { key: 'Style', value: styleName },
+                    { key: 'Bold Lettering', value: isBold ? 'Yes' : 'No' },
+                  ],
+                }],
+              },
+            },
+          }),
+        }).then(function (res) { return res.json(); })
+          .then(function (result) {
+            if (result.errors && result.errors.length) {
+              console.error('Shopify cartCreate GraphQL error:', result.errors);
+              showError('Something went wrong starting checkout — please try again.');
+              return;
+            }
+            var payload = result.data && result.data.cartCreate;
+            if (payload && payload.userErrors && payload.userErrors.length) {
+              console.error('Shopify cartCreate user error:', payload.userErrors);
+              showError('Something went wrong starting checkout — please try again.');
+              return;
+            }
+            if (payload && payload.cart && payload.cart.checkoutUrl) {
+              window.location.href = payload.cart.checkoutUrl;
+            } else {
+              showError('Something went wrong starting checkout — please try again.');
+            }
+          })
+          .catch(function (err) {
+            console.error('Shopify checkout network error:', err);
+            showError('Could not start checkout — check your connection and try again.');
           });
-        });
       };
 
       input.addEventListener('input', function () {
