@@ -1035,200 +1035,13 @@
 
         <!-- CTA row — Shopify Buy Button checkout -->
         <div id="order" class="mt-5 pt-4" style="border-top:1px solid rgba(255,255,255,0.09); scroll-margin-top:90px;">
-          <div id='product-component-1786569675443'></div>
-          <script type="text/javascript">
-            /*<![CDATA[*/
-            (function () {
-              var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-              if (window.ShopifyBuy) {
-                if (window.ShopifyBuy.UI) {
-                  ShopifyBuyInit();
-                } else {
-                  loadScript();
-                }
-              } else {
-                loadScript();
-              }
-              function loadScript() {
-                var script = document.createElement('script');
-                script.async = true;
-                script.src = scriptURL;
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-                script.onload = ShopifyBuyInit;
-              }
-              function ShopifyBuyInit() {
-                var client = ShopifyBuy.buildClient({
-                  domain: 'w1i5ea-x5.myshopify.com',
-                  storefrontAccessToken: '1117c51e829b95de96d89cfdba76fde9',
-                });
-                ShopifyBuy.UI.onReady(client).then(function (ui) {
-                  ui.createComponent('product', {
-                    id: '9427458261210',
-                    node: document.getElementById('product-component-1786569675443'),
-                    moneyFormat: 'Rs.%20%7B%7Bamount%7D%7D',
-                    options: {
-                      "product": {
-                        "styles": {
-                          "product": {
-                            "@media (min-width: 601px)": {
-                              "max-width": "calc(25% - 20px)",
-                              "margin-left": "20px",
-                              "margin-bottom": "50px"
-                            }
-                          },
-                          "button": {
-                            "font-family": "Roboto, sans-serif",
-                            "font-weight": "bold",
-                            "font-size": "17px",
-                            "padding-top": "16.5px",
-                            "padding-bottom": "16.5px",
-                            "color": "#000000",
-                            ":hover": {
-                              "color": "#000000",
-                              "background-color": "#e6c100"
-                            },
-                            "background-color": "#ffd600",
-                            ":focus": {
-                              "background-color": "#e6c100"
-                            }
-                          },
-                          "quantityInput": {
-                            "font-size": "17px",
-                            "padding-top": "16.5px",
-                            "padding-bottom": "16.5px"
-                          }
-                        },
-                        "buttonDestination": "checkout",
-                        "contents": {
-                          "img": false,
-                          "title": false,
-                          "price": false
-                        },
-                        "text": {
-                          "button": "Order now"
-                        },
-                        "googleFonts": [
-                          "Roboto"
-                        ]
-                      },
-                      "productSet": {
-                        "styles": {
-                          "products": {
-                            "@media (min-width: 601px)": {
-                              "margin-left": "-20px"
-                            }
-                          }
-                        }
-                      },
-                      "modalProduct": {
-                        "contents": {
-                          "img": false,
-                          "imgWithCarousel": true,
-                          "button": false,
-                          "buttonWithQuantity": true
-                        },
-                        "styles": {
-                          "product": {
-                            "@media (min-width: 601px)": {
-                              "max-width": "100%",
-                              "margin-left": "0px",
-                              "margin-bottom": "0px"
-                            }
-                          },
-                          "button": {
-                            "font-family": "Roboto, sans-serif",
-                            "font-weight": "bold",
-                            "font-size": "17px",
-                            "padding-top": "16.5px",
-                            "padding-bottom": "16.5px",
-                            "color": "#000000",
-                            ":hover": {
-                              "color": "#000000",
-                              "background-color": "#e6c100"
-                            },
-                            "background-color": "#ffd600",
-                            ":focus": {
-                              "background-color": "#e6c100"
-                            }
-                          },
-                          "quantityInput": {
-                            "font-size": "17px",
-                            "padding-top": "16.5px",
-                            "padding-bottom": "16.5px"
-                          }
-                        },
-                        "googleFonts": [
-                          "Roboto"
-                        ],
-                        "text": {
-                          "button": "Add to cart"
-                        }
-                      },
-                      "option": {},
-                      "cart": {
-                        "styles": {
-                          "button": {
-                            "font-family": "Roboto, sans-serif",
-                            "font-weight": "bold",
-                            "font-size": "17px",
-                            "padding-top": "16.5px",
-                            "padding-bottom": "16.5px",
-                            "color": "#000000",
-                            ":hover": {
-                              "color": "#000000",
-                              "background-color": "#e6c100"
-                            },
-                            "background-color": "#ffd600",
-                            ":focus": {
-                              "background-color": "#e6c100"
-                            }
-                          }
-                        },
-                        "text": {
-                          "total": "Subtotal",
-                          "button": "Checkout"
-                        },
-                        "popup": false,
-                        "googleFonts": [
-                          "Roboto"
-                        ]
-                      },
-                      "toggle": {
-                        "styles": {
-                          "toggle": {
-                            "font-family": "Roboto, sans-serif",
-                            "font-weight": "bold",
-                            "background-color": "#ffd600",
-                            ":hover": {
-                              "background-color": "#e6c100"
-                            },
-                            ":focus": {
-                              "background-color": "#e6c100"
-                            }
-                          },
-                          "count": {
-                            "font-size": "17px",
-                            "color": "#000000",
-                            ":hover": {
-                              "color": "#000000"
-                            }
-                          },
-                          "iconPath": {
-                            "fill": "#000000"
-                          }
-                        },
-                        "googleFonts": [
-                          "Roboto"
-                        ]
-                      }
-                    },
-                  });
-                });
-              }
-            })();
-            /*]]>*/
-          </script>
-          <p class="text-xs mt-4" style="color:#555;">Secure checkout — cards, UPI, netbanking all supported.</p>
+          <button id="hp-checkout-btn" type="button" onclick="window.startShopifyCheckout()"
+            class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-[14px] rounded-full w-full sm:w-auto"
+            style="background:#FFD700; color:#0d0d0d; font-weight:800; letter-spacing:0.5px; cursor:pointer; border:none; transition:all 0.2s ease;">
+            Order Now — ₹899
+          </button>
+          <p id="hp-checkout-status" class="text-xs mt-3" style="color:#555; min-height:14px;"></p>
+          <p class="text-xs mt-1" style="color:#555;">Secure checkout — cards, UPI, netbanking all supported.</p>
         </div>
       </div>
     </div>
@@ -2143,6 +1956,74 @@
           // Fallback: just open WhatsApp
           window.open(waUrl, '_blank');
         }
+      };
+
+      // ── Shopify checkout, carrying the customer's plate text/style/bold as line item properties ──
+      var SHOPIFY_DOMAIN = 'w1i5ea-x5.myshopify.com';
+      var SHOPIFY_STOREFRONT_TOKEN = '1117c51e829b95de96d89cfdba76fde9';
+      var SHOPIFY_VARIANT_ID = 'gid://shopify/ProductVariant/48332264210650';
+      var shopifyClient = null;
+
+      function loadShopifyBuySdk(cb) {
+        if (window.ShopifyBuy) return cb();
+        var script = document.createElement('script');
+        script.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        script.onload = cb;
+        script.onerror = function () { cb(new Error('Could not load Shopify checkout script')); };
+        document.head.appendChild(script);
+      }
+
+      window.startShopifyCheckout = function () {
+        var btn = document.getElementById('hp-checkout-btn');
+        var statusEl = document.getElementById('hp-checkout-status');
+        btn.disabled = true;
+        btn.style.opacity = '0.6';
+        btn.textContent = 'Loading checkout…';
+        statusEl.textContent = '';
+        statusEl.style.color = '#555';
+
+        loadShopifyBuySdk(function (err) {
+          if (err) {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.textContent = 'Order Now — ₹899';
+            statusEl.textContent = 'Could not start checkout — check your connection and try again.';
+            statusEl.style.color = '#e05252';
+            return;
+          }
+
+          if (!shopifyClient) {
+            shopifyClient = ShopifyBuy.buildClient({
+              domain: SHOPIFY_DOMAIN,
+              storefrontAccessToken: SHOPIFY_STOREFRONT_TOKEN,
+            });
+          }
+
+          var s = getStyle(currentStyle);
+          var styleName = s ? s.label : 'White';
+          var plateText = currentText || 'FERRARI';
+
+          shopifyClient.checkout.create({
+            lineItems: [{
+              variantId: SHOPIFY_VARIANT_ID,
+              quantity: 1,
+              customAttributes: [
+                { key: 'Plate Text', value: plateText },
+                { key: 'Style', value: styleName },
+                { key: 'Bold Lettering', value: isBold ? 'Yes' : 'No' },
+              ],
+            }],
+          }).then(function (checkout) {
+            window.location.href = checkout.webUrl;
+          }).catch(function (checkoutErr) {
+            console.error('Shopify checkout error:', checkoutErr);
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.textContent = 'Order Now — ₹899';
+            statusEl.textContent = 'Something went wrong starting checkout — please try again.';
+            statusEl.style.color = '#e05252';
+          });
+        });
       };
 
       input.addEventListener('input', function () {
