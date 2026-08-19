@@ -1937,8 +1937,12 @@
 
       function getStyle(id) { return PLATE_STYLES.filter(function (x) { return x.id === id; })[0]; }
 
+      function sanitizeText(t) {
+        return t.toUpperCase().replace(/[#\-:]/g, '').slice(0, 12);
+      }
+
       function setText(t) {
-        currentText = t.toUpperCase().slice(0, 12);
+        currentText = sanitizeText(t);
         input.value = currentText;
         counter.textContent = currentText.length;
         renderPreview();
@@ -2232,8 +2236,8 @@
       })();
 
       input.addEventListener('input', function () {
-        this.value = this.value.toUpperCase();
-        currentText = this.value.slice(0, 12);
+        currentText = sanitizeText(this.value);
+        this.value = currentText;
         counter.textContent = currentText.length;
         renderPreview();
       });
