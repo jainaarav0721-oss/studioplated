@@ -12,14 +12,17 @@
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1708335540438931');
     fbq('track', 'PageView');
   </script>
@@ -412,18 +415,18 @@
       font-weight: 700;
       border-radius: 50px;
       transition: all 0.2s ease;
-      box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3), 0 3px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(255, 215, 0, 0.15);
     }
 
     .btn-wa:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(255, 215, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(255, 215, 0, 0.2);
       background: #ffdf33;
     }
 
     #hero-customise-btn:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 24px 65px rgba(255, 215, 0, 0.6), 0 8px 22px rgba(0, 0, 0, 0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(255, 215, 0, 0.2);
     }
 
     /* ── Gold gradient text ── */
@@ -1063,7 +1066,7 @@
       <!-- Customise Here button -->
       <a href="#hero-customiser" id="hero-customise-btn"
         class="anim-in a4 mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full"
-        style="background:#FFD700; color:#0d0d0d; font-family:'Rajdhani',sans-serif; font-weight:800; font-size:13px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 8px 26px rgba(255,215,0,0.35), 0 3px 10px rgba(0,0,0,0.45); transition:transform 0.2s ease, box-shadow 0.2s ease;">
+        style="background:#FFD700; color:#0d0d0d; font-family:'Rajdhani',sans-serif; font-weight:800; font-size:13px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 4px 14px rgba(0,0,0,0.3), 0 1px 3px rgba(255,215,0,0.15); transition:transform 0.2s ease, box-shadow 0.2s ease;">
         Customise Here
         <svg id="hero-scroll-arrow" width="13" height="13" viewBox="0 0 22 22" fill="none"
           xmlns="http://www.w3.org/2000/svg" style="animation:scroll-bob 1.8s ease-in-out infinite;">
@@ -1424,8 +1427,10 @@
             <div
               style="background:#FFD700; color:#0d0d0d; text-align:center; border-radius:8px; padding:10px; font-size:13px; font-weight:800; letter-spacing:1px;">
               Pay ₹990 →</div>
-            <div style="display:flex; align-items:center; justify-content:center; gap:5px; font-size:9px; color:#555; margin-top:10px;">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <div
+              style="display:flex; align-items:center; justify-content:center; gap:5px; font-size:9px; color:#555; margin-top:10px;">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
@@ -1456,10 +1461,12 @@
             Delivered across India in 5 to 7 working days.</p>
           <div class="flex flex-wrap gap-2">
             <span
-              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">5 to 7
+              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">5
+              to 7
               Days</span>
             <span
-              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,255,255,0.08); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#333;">Pan India</span>
+              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,255,255,0.08); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#333;">Pan
+              India</span>
           </div>
         </div>
 
@@ -1709,13 +1716,16 @@
     <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
 
       <div class="p-6">
-        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full" style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
+          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+            stroke-linecap="round" stroke-linejoin="round">
             <circle cx="13.5" cy="6.5" r=".5" fill="#FFD700" />
             <circle cx="17.5" cy="10.5" r=".5" fill="#FFD700" />
             <circle cx="8.5" cy="7.5" r=".5" fill="#FFD700" />
             <circle cx="6.5" cy="12.5" r=".5" fill="#FFD700" />
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+            <path
+              d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
           </svg>
         </div>
         <h4 class="font-bold text-white mb-2">100% Custom</h4>
@@ -1724,9 +1734,12 @@
       </div>
 
       <div class="p-6">
-        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full" style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
+          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
           </svg>
         </div>
         <h4 class="font-bold text-white mb-2">Fast Turnaround</h4>
@@ -1735,9 +1748,12 @@
       </div>
 
       <div class="p-6">
-        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full" style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73Z" />
+        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
+          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73Z" />
             <path d="M12 22V12" />
             <path d="m3.3 7 8.7 5 8.7-5" />
             <path d="m7.5 4.27 9 5.15" />
@@ -1749,8 +1765,10 @@
       </div>
 
       <div class="p-6">
-        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full" style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
+          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+            stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
