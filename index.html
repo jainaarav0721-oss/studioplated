@@ -385,6 +385,23 @@
       animation: ticker 30s linear infinite;
     }
 
+    /* ── Hero badge ticker (scrolls left to right, opposite of the main ticker) ── */
+    @keyframes hero-badge-ticker {
+      from {
+        transform: translateX(-50%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .hero-badge-ticker {
+      display: flex;
+      width: max-content;
+      animation: hero-badge-ticker 12s linear infinite;
+    }
+
     /* ── Order button ── */
     .btn-wa {
       display: inline-flex;
@@ -1012,16 +1029,18 @@
 
     <!-- Overlay content — fills the space above the customiser panel -->
     <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-24 pb-6">
-      <div class="anim-in a1 mb-4">
+      <div class="anim-in a1 mb-5">
         <div
-          style="display:inline-flex; align-items:center; gap:10px; padding:6px 14px; border-radius:5px; border:1px solid rgba(255,215,0,0.22); background:rgba(255,215,0,0.06);">
-          <span style="width:5px;height:5px;border-radius:50%;background:#FFD700;flex-shrink:0;"></span>
-          <span
-            style="font-family:'Rajdhani',sans-serif; font-size:10px; font-weight:800; letter-spacing:4px; color:#FFD700; text-transform:uppercase;">Handcrafted</span>
-          <span style="width:1px;height:11px;background:rgba(255,215,0,0.25);"></span>
-          <span
-            style="font-family:'Rajdhani',sans-serif; font-size:10px; font-weight:800; letter-spacing:4px; color:#FFD700; text-transform:uppercase;">Made
-            in India</span>
+          style="display:inline-flex; align-items:center; gap:14px; padding:11px 24px; border-radius:8px; border:1px solid rgba(255,215,0,0.25); background:rgba(255,215,0,0.07); overflow:hidden;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#FFD700;flex-shrink:0;"></span>
+          <div style="overflow:hidden; width:min(380px, 58vw);">
+            <div class="hero-badge-ticker"
+              style="font-family:'Rajdhani',sans-serif; font-size:clamp(11px,3.2vw,15px); font-weight:800; letter-spacing:3px; color:#FFD700; text-transform:uppercase; white-space:nowrap;">
+              <span style="padding-right:32px;">Studio Plated &bull; Handcrafted &bull; Made in India &bull;</span>
+              <span style="padding-right:32px;" aria-hidden="true">Studio Plated &bull; Handcrafted &bull; Made in
+                India &bull;</span>
+            </div>
+          </div>
         </div>
       </div>
       <h1 class="anim-in a2 text-white"
