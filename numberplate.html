@@ -95,7 +95,7 @@
     .plate-black .pt {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 700;
-      color: #FFD700;
+      color: #C9A961;
       letter-spacing: 5px;
       padding: 10px 22px;
       line-height: 1;
@@ -135,11 +135,11 @@
     .plate-navy .pt {
       font-family: 'Rajdhani', sans-serif;
       font-weight: 700;
-      color: #FFD700;
+      color: #C9A961;
       letter-spacing: 5px;
       padding: 10px 22px;
       line-height: 1;
-      text-shadow: 0 0 18px rgba(255, 215, 0, 0.45);
+      text-shadow: 0 0 18px rgba(201, 169, 97, 0.45);
     }
 
     /* Arizona red */
@@ -424,7 +424,7 @@
       height: 620px;
       top: -200px;
       left: -140px;
-      background: radial-gradient(circle, rgba(255, 180, 70, 0.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201, 169, 97, 0.22) 0%, transparent 70%);
       animation: glow-drift-1 46s ease-in-out infinite;
     }
 
@@ -433,7 +433,7 @@
       height: 580px;
       bottom: -220px;
       right: -120px;
-      background: radial-gradient(circle, rgba(140, 80, 30, 0.16) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(130, 105, 65, 0.16) 0%, transparent 70%);
       animation: glow-drift-2 54s ease-in-out infinite;
     }
 
@@ -474,28 +474,28 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #FFD700;
+      background: #C9A961;
       color: #0d0d0d;
       font-weight: 700;
       border-radius: 50px;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(255, 215, 0, 0.15);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(201, 169, 97, 0.15);
     }
 
     .btn-wa:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(201, 169, 97, 0.2);
       background: #ffdf33;
     }
 
     #hero-customise-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(201, 169, 97, 0.2);
     }
 
     /* ── Gold gradient text ── */
     .text-gold {
-      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      background: linear-gradient(135deg, #C9A961 0%, #8C6D3F 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -999,7 +999,7 @@
 
     .gold-particle {
       position: absolute;
-      background: #FFD700;
+      background: #C9A961;
       border-radius: 50%;
       pointer-events: none;
       animation: particle-rise ease-in infinite;
@@ -1068,7 +1068,7 @@
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
           <span id="cart-count-badge"
-            style="display:none; position:absolute; top:-4px; right:-4px; min-width:16px; height:16px; padding:0 3px; border-radius:99px; background:#FFD700; color:#0d0d0d; font-size:10px; font-weight:800; line-height:16px; text-align:center; font-family:'Rajdhani',sans-serif;">0</span>
+            style="display:none; position:absolute; top:-4px; right:-4px; min-width:16px; height:16px; padding:0 3px; border-radius:99px; background:#C9A961; color:#0d0d0d; font-size:10px; font-weight:800; line-height:16px; text-align:center; font-family:'Rajdhani',sans-serif;">0</span>
         </button>
         <a href="#order" class="btn-wa px-5 py-2.5 text-sm">
           Order Now
@@ -1082,45 +1082,45 @@
 
     <!-- Gold hairline across top -->
     <div class="absolute top-0 inset-x-0 z-20"
-      style="height:1px; background:linear-gradient(to right, transparent 0%, rgba(255,215,0,0.5) 25%, rgba(255,215,0,0.5) 75%, transparent 100%);">
+      style="height:1px; background:linear-gradient(to right, transparent 0%, rgba(201,169,97,0.5) 25%, rgba(201,169,97,0.5) 75%, transparent 100%);">
     </div>
 
     <!-- ── Calm static backdrop (formerly an animated 3D scene; replaced for a quieter, editorial feel) ── -->
     <div class="absolute inset-0" id="hero-3d-wrap">
       <div class="absolute inset-0 pointer-events-none" id="hero-3d-fallback"
-        style="background:radial-gradient(ellipse 70% 55% at 50% 18%, rgba(255,183,80,0.07) 0%, transparent 62%), linear-gradient(160deg, #100d09 0%, #070605 55%, #030201 100%);">
+        style="background:radial-gradient(ellipse 70% 55% at 50% 18%, rgba(201,169,97,0.07) 0%, transparent 62%), linear-gradient(160deg, #100d09 0%, #070605 55%, #030201 100%);">
       </div>
     </div>
 
     <!-- Overlay content — fills the space above the customiser panel -->
     <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-24 pb-6">
       <div class="anim-in a1 mb-6"
-        style="width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow:hidden; padding:13px 0; background:rgba(13,13,13,0.45); border-top:1px solid rgba(255,215,0,0.18); border-bottom:1px solid rgba(255,215,0,0.18);">
+        style="width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow:hidden; padding:13px 0; background:rgba(13,13,13,0.45); border-top:1px solid rgba(201,169,97,0.18); border-bottom:1px solid rgba(201,169,97,0.18);">
         <div class="hero-badge-ticker"
           style="display:flex; width:max-content; font-family:'Rajdhani',sans-serif; font-size:clamp(13px,2.3vw,19px); font-weight:800; letter-spacing:5px; text-transform:uppercase; white-space:nowrap;">
-          <span style="padding-right:36px; color:#FFD700;">Studio Plated</span>
+          <span style="padding-right:36px; color:#C9A961;">Studio Plated</span>
           <span style="padding-right:36px; color:#fff;">Handcrafted</span>
-          <span style="padding-right:36px; color:#FFD700;">Made in India</span>
+          <span style="padding-right:36px; color:#C9A961;">Made in India</span>
           <span style="padding-right:36px; color:#fff;">Studio Plated</span>
-          <span style="padding-right:36px; color:#FFD700;">Handcrafted</span>
+          <span style="padding-right:36px; color:#C9A961;">Handcrafted</span>
           <span style="padding-right:36px; color:#fff;">Made in India</span>
-          <span style="padding-right:36px; color:#FFD700;">Studio Plated</span>
+          <span style="padding-right:36px; color:#C9A961;">Studio Plated</span>
           <span style="padding-right:36px; color:#fff;">Handcrafted</span>
-          <span style="padding-right:36px; color:#FFD700;">Made in India</span>
+          <span style="padding-right:36px; color:#C9A961;">Made in India</span>
           <span style="padding-right:36px; color:#fff;" aria-hidden="true">Studio Plated</span>
-          <span style="padding-right:36px; color:#FFD700;" aria-hidden="true">Handcrafted</span>
+          <span style="padding-right:36px; color:#C9A961;" aria-hidden="true">Handcrafted</span>
           <span style="padding-right:36px; color:#fff;" aria-hidden="true">Made in India</span>
-          <span style="padding-right:36px; color:#FFD700;" aria-hidden="true">Studio Plated</span>
+          <span style="padding-right:36px; color:#C9A961;" aria-hidden="true">Studio Plated</span>
           <span style="padding-right:36px; color:#fff;" aria-hidden="true">Handcrafted</span>
-          <span style="padding-right:36px; color:#FFD700;" aria-hidden="true">Made in India</span>
+          <span style="padding-right:36px; color:#C9A961;" aria-hidden="true">Made in India</span>
           <span style="padding-right:36px; color:#fff;" aria-hidden="true">Studio Plated</span>
-          <span style="padding-right:36px; color:#FFD700;" aria-hidden="true">Handcrafted</span>
+          <span style="padding-right:36px; color:#C9A961;" aria-hidden="true">Handcrafted</span>
           <span style="padding-right:36px; color:#fff;" aria-hidden="true">Made in India</span>
         </div>
       </div>
       <h1 class="anim-in a2 text-white"
         style="font-family:'Anton',sans-serif; font-size:clamp(2.2rem,6vw,4.4rem); line-height:0.86; letter-spacing:0px;">
-        STUDIO<span style="color:#FFD700;">PLATED</span>
+        STUDIO<span style="color:#C9A961;">PLATED</span>
       </h1>
       <p class="anim-in a3 mt-3" style="color:#999; font-size:13px; line-height:1.6; max-width:380px;">Type your
         text, pick a colour, hit order. Your custom plate ships to your door.</p>
@@ -1128,7 +1128,7 @@
       <!-- Customise Here button -->
       <a href="#hero-customiser" id="hero-customise-btn"
         class="anim-in a4 mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full"
-        style="background:#FFD700; color:#0d0d0d; font-family:'Rajdhani',sans-serif; font-weight:800; font-size:13px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 4px 14px rgba(0,0,0,0.3), 0 1px 3px rgba(255,215,0,0.15); transition:transform 0.2s ease, box-shadow 0.2s ease;">
+        style="background:#C9A961; color:#0d0d0d; font-family:'Rajdhani',sans-serif; font-weight:800; font-size:13px; letter-spacing:2px; text-transform:uppercase; box-shadow:0 4px 14px rgba(0,0,0,0.3), 0 1px 3px rgba(201,169,97,0.15); transition:transform 0.2s ease, box-shadow 0.2s ease;">
         Customise Here
         <svg id="hero-scroll-arrow" width="13" height="13" viewBox="0 0 22 22" fill="none"
           xmlns="http://www.w3.org/2000/svg" style="animation:scroll-bob 1.8s ease-in-out infinite;">
@@ -1148,13 +1148,13 @@
           <div class="relative rounded-xl overflow-hidden flex flex-col items-center justify-center py-3"
             style="background:#e9e5da;" id="hero-tilt-wrap">
             <div class="pointer-events-none absolute"
-              style="width:180px;height:180px;background:radial-gradient(ellipse,rgba(255,215,0,0.16) 0%,transparent 68%);top:48%;left:50%;transform:translate(-50%,-50%);">
+              style="width:180px;height:180px;background:radial-gradient(ellipse,rgba(201,169,97,0.16) 0%,transparent 68%);top:48%;left:50%;transform:translate(-50%,-50%);">
             </div>
             <div id="hero-tilt-target">
               <div class="plate-float" id="hp-plate-wrap"
                 style="transform:rotate(-2.5deg); position:relative; z-index:2;">
                 <div id="hp-plate" class="plate plate-white"
-                  style="box-shadow:0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(255,215,0,0.13);">
+                  style="box-shadow:0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(201,169,97,0.13);">
                   <div class="pt" id="hp-pt"
                     style="font-size:clamp(17px,2.8vw,26px); padding:9px 16px; transition:font-size 0.15s;">FERRARI
                   </div>
@@ -1197,7 +1197,7 @@
           style="border-top:1px solid rgba(255,255,255,0.09); scroll-margin-top:90px;">
           <button id="hp-checkout-btn" type="button" onclick="window.addToCart()"
             class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-[14px] rounded-full w-full sm:w-auto"
-            style="background:#FFD700; color:#0d0d0d; font-weight:800; letter-spacing:0.5px; cursor:pointer; border:none; transition:all 0.2s ease;">
+            style="background:#C9A961; color:#0d0d0d; font-weight:800; letter-spacing:0.5px; cursor:pointer; border:none; transition:all 0.2s ease;">
             Add to Cart · ₹990
           </button>
           <button type="button" onclick="window.openCartPanel()"
@@ -1222,44 +1222,44 @@
       style="font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:4px; white-space:nowrap;">
       <!-- Block 1 -->
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">FAMILY NAME</span>
+      <span style="padding:0 4px; color:#C9A961;">FAMILY NAME</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">LUCKY 7</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">MH · 01 · 2025</span>
+      <span style="padding:0 4px; color:#C9A961;">MH · 01 · 2025</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">YOUR INITIALS</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">BORN 2001</span>
+      <span style="padding:0 4px; color:#C9A961;">BORN 2001</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">GARAGE LIFE</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">KING VIRAT</span>
+      <span style="padding:0 4px; color:#C9A961;">KING VIRAT</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">DREAM BIG</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">SQUAD GOALS</span>
+      <span style="padding:0 4px; color:#C9A961;">SQUAD GOALS</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">MY ROOM</span>
       <!-- Block 2 (identical for seamless loop) -->
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">FAMILY NAME</span>
+      <span style="padding:0 4px; color:#C9A961;">FAMILY NAME</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">LUCKY 7</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">MH · 01 · 2025</span>
+      <span style="padding:0 4px; color:#C9A961;">MH · 01 · 2025</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">YOUR INITIALS</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">BORN 2001</span>
+      <span style="padding:0 4px; color:#C9A961;">BORN 2001</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">GARAGE LIFE</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">KING VIRAT</span>
+      <span style="padding:0 4px; color:#C9A961;">KING VIRAT</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">DREAM BIG</span>
       <span style="padding:0 28px; color:#222;">•</span>
-      <span style="padding:0 4px; color:#FFD700;">SQUAD GOALS</span>
+      <span style="padding:0 4px; color:#C9A961;">SQUAD GOALS</span>
       <span style="padding:0 28px; color:#222;">•</span>
       <span style="padding:0 4px; color:#fff;">MY ROOM</span>
     </div>
@@ -1270,7 +1270,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <p class="text-xs font-bold tracking-[4px] uppercase mb-3"
-          style="color:#FFD700; background:#0d0d0d; display:inline-block; padding:4px 12px; border-radius:4px;">04
+          style="color:#C9A961; background:#0d0d0d; display:inline-block; padding:4px 12px; border-radius:4px;">04
           Styles Available</p>
         <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-3" style="line-height:1.1;">Choose Your Finish</h2>
         <p class="text-gray-500 text-lg mt-4 max-w-md mx-auto">Every plate is made to order. Tell us your text and we'll
@@ -1306,7 +1306,7 @@
           <h3 class="font-bold text-gray-900 text-lg mb-1">Midnight Black</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Matte black base with gold text. Premium, sleek, and
             impossible to ignore.</p>
-          <div class="mt-4 text-xs font-semibold uppercase tracking-widest" style="color:#FFD700;">Best Seller</div>
+          <div class="mt-4 text-xs font-semibold uppercase tracking-widest" style="color:#C9A961;">Best Seller</div>
         </div>
 
         <!-- Style 3: Vintage Amber -->
@@ -1350,7 +1350,7 @@
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <p
-            style="font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; letter-spacing:5px; color:#FFD700; text-transform:uppercase; margin-bottom:14px;">
+            style="font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:700; letter-spacing:5px; color:#C9A961; text-transform:uppercase; margin-bottom:14px;">
             The Process</p>
           <h2
             style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,8vw,7rem); line-height:0.9; letter-spacing:1px; color:#fff;">
@@ -1369,8 +1369,8 @@
         <div class="flex-1 py-16 lg:pr-16 lg:border-r" style="border-color:rgba(255,255,255,0.06);">
           <div class="flex items-baseline gap-5 mb-8">
             <span
-              style="font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,14vw,10rem); line-height:1; color:#FFD700; opacity:0.12; position:relative; top:0.05em; user-select:none;">01</span>
-            <div style="width:1px; height:48px; background:rgba(255,215,0,0.2); flex-shrink:0;"></div>
+              style="font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,14vw,10rem); line-height:1; color:#C9A961; opacity:0.12; position:relative; top:0.05em; user-select:none;">01</span>
+            <div style="width:1px; height:48px; background:rgba(201,169,97,0.2); flex-shrink:0;"></div>
             <h3
               style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5vw,3.8rem); line-height:0.95; letter-spacing:1px; color:#fff;">
               Design<br>your plate</h3>
@@ -1380,7 +1380,7 @@
             lettering. You see the result in real time.</p>
           <div class="flex flex-wrap gap-2">
             <span
-              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">Live
+              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(201,169,97,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#C9A961;">Live
               Preview</span>
             <span
               style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,255,255,0.08); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#333;">Takes
@@ -1406,7 +1406,7 @@
             <!-- Swatches -->
             <div style="display:flex; gap:7px; margin-bottom:18px;">
               <div
-                style="width:22px;height:22px;border-radius:50%;background:#f4f2ec;border:2px solid #1a1a1a;box-shadow:0 0 0 2px #FFD700;">
+                style="width:22px;height:22px;border-radius:50%;background:#f4f2ec;border:2px solid #1a1a1a;box-shadow:0 0 0 2px #C9A961;">
               </div>
               <div style="width:22px;height:22px;border-radius:50%;background:#111;"></div>
               <div style="width:22px;height:22px;border-radius:50%;background:#0f1e3d;"></div>
@@ -1418,7 +1418,7 @@
             <div
               style="background:#1a1a1a; border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:10px 14px; font-family:'Rajdhani',sans-serif; font-size:14px; letter-spacing:3px; color:#888;">
               FERRARI<span
-                style="display:inline-block;width:2px;height:14px;background:#FFD700;margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span>
+                style="display:inline-block;width:2px;height:14px;background:#C9A961;margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span>
             </div>
           </div>
         </div>
@@ -1434,8 +1434,8 @@
         <div class="flex-1 py-16 lg:pl-16 lg:border-l" style="border-color:rgba(255,255,255,0.06);">
           <div class="flex items-baseline gap-5 mb-8">
             <span
-              style="font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,14vw,10rem); line-height:1; color:#FFD700; opacity:0.12; position:relative; top:0.05em; user-select:none;">02</span>
-            <div style="width:1px; height:48px; background:rgba(255,215,0,0.2); flex-shrink:0;"></div>
+              style="font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,14vw,10rem); line-height:1; color:#C9A961; opacity:0.12; position:relative; top:0.05em; user-select:none;">02</span>
+            <div style="width:1px; height:48px; background:rgba(201,169,97,0.2); flex-shrink:0;"></div>
             <h3
               style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5vw,3.8rem); line-height:0.95; letter-spacing:1px; color:#fff;">
               Confirm<br>&amp; pay</h3>
@@ -1445,7 +1445,7 @@
             checkout, right here on the page. Cards, UPI, netbanking, all supported. No waiting on a payment link.</p>
           <div class="flex flex-wrap gap-2">
             <span
-              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">₹990
+              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(201,169,97,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#C9A961;">₹990
               Flat</span>
             <span
               style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,255,255,0.08); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#333;">Cards
@@ -1461,8 +1461,8 @@
             <div
               style="display:flex; align-items:center; gap:10px; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.06); margin-bottom:16px;">
               <div
-                style="width:34px;height:34px;border-radius:50%;background:rgba(255,215,0,0.12);display:flex;align-items:center;justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2">
+                style="width:34px;height:34px;border-radius:50%;background:rgba(201,169,97,0.12);display:flex;align-items:center;justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="2">
                   <rect x="5" y="11" width="14" height="9" rx="2" />
                   <path d="M8 11V7a4 4 0 0 1 8 0v4" />
                 </svg>
@@ -1487,7 +1487,7 @@
               <span>Shipping</span><span>Calculated at checkout</span>
             </div>
             <div
-              style="background:#FFD700; color:#0d0d0d; text-align:center; border-radius:8px; padding:10px; font-size:13px; font-weight:800; letter-spacing:1px;">
+              style="background:#C9A961; color:#0d0d0d; text-align:center; border-radius:8px; padding:10px; font-size:13px; font-weight:800; letter-spacing:1px;">
               Pay ₹990 →</div>
             <div
               style="display:flex; align-items:center; justify-content:center; gap:5px; font-size:9px; color:#555; margin-top:10px;">
@@ -1512,8 +1512,8 @@
         <div class="flex-1 py-16 lg:pr-16 lg:border-r" style="border-color:rgba(255,255,255,0.06);">
           <div class="flex items-baseline gap-5 mb-8">
             <span
-              style="font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,14vw,10rem); line-height:1; color:#FFD700; opacity:0.12; position:relative; top:0.05em; user-select:none;">03</span>
-            <div style="width:1px; height:48px; background:rgba(255,215,0,0.2); flex-shrink:0;"></div>
+              style="font-family:'Bebas Neue',sans-serif; font-size:clamp(5rem,14vw,10rem); line-height:1; color:#C9A961; opacity:0.12; position:relative; top:0.05em; user-select:none;">03</span>
+            <div style="width:1px; height:48px; background:rgba(201,169,97,0.2); flex-shrink:0;"></div>
             <h3
               style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5vw,3.8rem); line-height:0.95; letter-spacing:1px; color:#fff;">
               It arrives<br>at your door</h3>
@@ -1523,7 +1523,7 @@
             Delivered across India in 5 to 7 working days.</p>
           <div class="flex flex-wrap gap-2">
             <span
-              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">5
+              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(201,169,97,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#C9A961;">5
               to 7
               Days</span>
             <span
@@ -1544,12 +1544,12 @@
               <div style="display:flex; gap:16px; align-items:flex-start;">
                 <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
                   <div
-                    style="width:28px;height:28px;border-radius:50%;background:#FFD700;display:flex;align-items:center;justify-content:center; flex-shrink:0;">
+                    style="width:28px;height:28px;border-radius:50%;background:#C9A961;display:flex;align-items:center;justify-content:center; flex-shrink:0;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <div style="width:1px;height:32px;background:rgba(255,215,0,0.3);"></div>
+                  <div style="width:1px;height:32px;background:rgba(201,169,97,0.3);"></div>
                 </div>
                 <div style="padding-top:4px; padding-bottom:16px;">
                   <div style="font-size:12px; font-weight:600; color:#e9edef;">Order Confirmed</div>
@@ -1560,12 +1560,12 @@
               <div style="display:flex; gap:16px; align-items:flex-start;">
                 <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
                   <div
-                    style="width:28px;height:28px;border-radius:50%;background:#FFD700;display:flex;align-items:center;justify-content:center; flex-shrink:0;">
+                    style="width:28px;height:28px;border-radius:50%;background:#C9A961;display:flex;align-items:center;justify-content:center; flex-shrink:0;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <div style="width:1px;height:32px;background:rgba(255,215,0,0.3);"></div>
+                  <div style="width:1px;height:32px;background:rgba(201,169,97,0.3);"></div>
                 </div>
                 <div style="padding-top:4px; padding-bottom:16px;">
                   <div style="font-size:12px; font-weight:600; color:#e9edef;">In Production</div>
@@ -1576,7 +1576,7 @@
               <div style="display:flex; gap:16px; align-items:flex-start;">
                 <div style="display:flex; flex-direction:column; align-items:center; flex-shrink:0;">
                   <div
-                    style="width:28px;height:28px;border-radius:50%;background:#FFD700;display:flex;align-items:center;justify-content:center; flex-shrink:0;">
+                    style="width:28px;height:28px;border-radius:50%;background:#C9A961;display:flex;align-items:center;justify-content:center; flex-shrink:0;">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
@@ -1616,7 +1616,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14">
         <p class="text-xs font-bold tracking-[4px] uppercase mb-3"
-          style="color:#FFD700; background:#0d0d0d; display:inline-block; padding:4px 12px; border-radius:4px;">
+          style="color:#C9A961; background:#0d0d0d; display:inline-block; padding:4px 12px; border-radius:4px;">
           Transparent Pricing</p>
         <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mt-3">Simple. No Surprises.</h2>
       </div>
@@ -1632,16 +1632,16 @@
           <ul class="space-y-3 text-sm text-gray-600">
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                style="background:#FFD700;">✓</span> Any text or numbers</li>
+                style="background:#C9A961;">✓</span> Any text or numbers</li>
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                style="background:#FFD700;">✓</span> 9 colour styles</li>
+                style="background:#C9A961;">✓</span> 9 colour styles</li>
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                style="background:#FFD700;">✓</span> Bold or regular lettering</li>
+                style="background:#C9A961;">✓</span> Bold or regular lettering</li>
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                style="background:#FFD700;">✓</span> Pan India delivery</li>
+                style="background:#C9A961;">✓</span> Pan India delivery</li>
           </ul>
         </div>
 
@@ -1670,7 +1670,7 @@
   <section class="py-24 px-5 bg-[#0d0d0d]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-14">
-        <p class="text-xs font-bold tracking-[4px] uppercase mb-3" style="color:#FFD700;">Real Products. Real Quality.
+        <p class="text-xs font-bold tracking-[4px] uppercase mb-3" style="color:#C9A961;">Real Products. Real Quality.
         </p>
         <h2
           style="font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,4.5rem); line-height:1; letter-spacing:2px;"
@@ -1711,7 +1711,7 @@
             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style="background:rgba(0,0,0,0.45);">
             <span class="text-white font-bold text-sm tracking-widest uppercase px-4 py-2 rounded-full"
-              style="background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.5);">Try This Style</span>
+              style="background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.5);">Try This Style</span>
           </div>
           <div class="absolute bottom-0 inset-x-0 p-4"
             style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
@@ -1728,7 +1728,7 @@
             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style="background:rgba(0,0,0,0.45);">
             <span class="text-white font-bold text-sm tracking-widest uppercase px-4 py-2 rounded-full"
-              style="background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.5);">Try This Style</span>
+              style="background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.5);">Try This Style</span>
           </div>
           <div class="absolute bottom-0 inset-x-0 p-4"
             style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
@@ -1745,7 +1745,7 @@
             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style="background:rgba(0,0,0,0.45);">
             <span class="text-white font-bold text-sm tracking-widest uppercase px-4 py-2 rounded-full"
-              style="background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.5);">Try This Style</span>
+              style="background:rgba(201,169,97,0.15);border:1px solid rgba(201,169,97,0.5);">Try This Style</span>
           </div>
           <div class="absolute bottom-0 inset-x-0 p-4"
             style="background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,transparent 100%);">
@@ -1779,13 +1779,13 @@
 
       <div class="p-6">
         <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
-          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+          style="width:52px; height:52px; background:rgba(201,169,97,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.75"
             stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="13.5" cy="6.5" r=".5" fill="#FFD700" />
-            <circle cx="17.5" cy="10.5" r=".5" fill="#FFD700" />
-            <circle cx="8.5" cy="7.5" r=".5" fill="#FFD700" />
-            <circle cx="6.5" cy="12.5" r=".5" fill="#FFD700" />
+            <circle cx="13.5" cy="6.5" r=".5" fill="#C9A961" />
+            <circle cx="17.5" cy="10.5" r=".5" fill="#C9A961" />
+            <circle cx="8.5" cy="7.5" r=".5" fill="#C9A961" />
+            <circle cx="6.5" cy="12.5" r=".5" fill="#C9A961" />
             <path
               d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
           </svg>
@@ -1797,8 +1797,8 @@
 
       <div class="p-6">
         <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
-          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+          style="width:52px; height:52px; background:rgba(201,169,97,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.75"
             stroke-linecap="round" stroke-linejoin="round">
             <path
               d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
@@ -1811,8 +1811,8 @@
 
       <div class="p-6">
         <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
-          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+          style="width:52px; height:52px; background:rgba(201,169,97,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.75"
             stroke-linecap="round" stroke-linejoin="round">
             <path
               d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73Z" />
@@ -1828,8 +1828,8 @@
 
       <div class="p-6">
         <div class="mx-auto mb-4 inline-flex items-center justify-center rounded-full"
-          style="width:52px; height:52px; background:rgba(255,215,0,0.08);">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.75"
+          style="width:52px; height:52px; background:rgba(201,169,97,0.08);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A961" stroke-width="1.75"
             stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
@@ -1906,7 +1906,7 @@
   <!-- ═══════════════════════════════════ FINAL CTA ═══════════════════════════════════ -->
   <section class="py-28 px-5 text-center relative overflow-hidden dot-grid" style="background:#0d0d0d;">
     <div class="absolute inset-0 pointer-events-none"
-      style="background:radial-gradient(ellipse at center, rgba(255,215,0,0.06) 0%, transparent 65%);"></div>
+      style="background:radial-gradient(ellipse at center, rgba(201,169,97,0.06) 0%, transparent 65%);"></div>
     <div class="relative max-w-2xl mx-auto">
       <div class="flex justify-center mb-10">
         <div class="plate plate-black" style="transform:rotate(1deg);">
@@ -2026,9 +2026,9 @@
     (function () {
       var PLATE_STYLES = [
         { id: 'white', label: 'White', bg: '#f4f2ec', border: '#1a1a1a', textColor: '#111111', hasInd: true },
-        { id: 'black', label: 'Black', bg: '#111111', border: '#444444', textColor: '#FFD700', hasInd: false },
+        { id: 'black', label: 'Black', bg: '#111111', border: '#444444', textColor: '#C9A961', hasInd: false },
         { id: 'vintage', label: 'Amber', bg: '#c8860a', border: '#8b5e0a', textColor: '#1a0800', hasInd: false },
-        { id: 'navy', label: 'Navy', bg: '#0f1e3d', border: '#1e3a6e', textColor: '#FFD700', hasInd: false },
+        { id: 'navy', label: 'Navy', bg: '#0f1e3d', border: '#1e3a6e', textColor: '#C9A961', hasInd: false },
         { id: 'red', label: 'Red', bg: '#b91c1c', border: '#7f1d1d', textColor: '#f5f5f5', hasInd: false },
         { id: 'teal', label: 'Teal', bg: '#0d6b8a', border: '#084f66', textColor: '#e8e8e8', hasInd: false },
         { id: 'yellow', label: 'Yellow', bg: '#eab308', border: '#a16207', textColor: '#1a1a1a', hasInd: false },
@@ -2068,7 +2068,7 @@
         btn.type = 'button';
         btn.textContent = t;
         btn.style.cssText = 'padding:4px 10px;border-radius:99px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:#555;font-size:10px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all 0.15s;';
-        btn.addEventListener('mouseenter', function () { btn.style.borderColor = 'rgba(255,215,0,0.4)'; btn.style.color = '#FFD700'; });
+        btn.addEventListener('mouseenter', function () { btn.style.borderColor = 'rgba(201,169,97,0.4)'; btn.style.color = '#C9A961'; });
         btn.addEventListener('mouseleave', function () { btn.style.borderColor = 'rgba(255,255,255,0.1)'; btn.style.color = '#555'; });
         btn.addEventListener('click', function () { setText(t); });
         quickChipWrap.appendChild(btn);
@@ -2090,15 +2090,15 @@
       function applyStyle(id) {
         currentStyle = id;
         plate.className = 'plate plate-' + id;
-        plate.style.boxShadow = '0 30px 70px rgba(0,0,0,0.35), 0 0 40px rgba(255,215,0,0.13)';
+        plate.style.boxShadow = '0 30px 70px rgba(0,0,0,0.35), 0 0 40px rgba(201,169,97,0.13)';
 
         // Swatch highlight
         swatchWrap.querySelectorAll('button').forEach(function (el) {
           var active = el.dataset.sid === id;
           var dot = el.querySelector('.swatch-dot');
           dot.style.transform = active ? 'scale(1.15) translateY(-2px)' : 'scale(1)';
-          dot.style.boxShadow = active ? '0 0 0 2.5px #FFD700' : 'none';
-          el.querySelector('span:last-child').style.color = active ? '#FFD700' : '#555';
+          dot.style.boxShadow = active ? '0 0 0 2.5px #C9A961' : 'none';
+          el.querySelector('span:last-child').style.color = active ? '#C9A961' : '#555';
         });
 
         renderPreview();
@@ -2216,7 +2216,7 @@
             '<div>' +
             '  <div style="font-family:\'Rajdhani\',sans-serif; font-weight:800; letter-spacing:1px; color:#fff; font-size:15px;">' + attr(line, 'Plate Text') + '</div>' +
             '  <div style="font-size:11px; color:#888; margin-top:2px;">' + attr(line, 'Style') + (attr(line, 'Bold Lettering') === 'Yes' ? ' · Bold' : '') + ' · Qty ' + line.quantity + '</div>' +
-            '  <div style="font-size:12px; color:#FFD700; margin-top:4px; font-weight:700;">' + formatMoney(line.cost.totalAmount.amount, line.cost.totalAmount.currencyCode) + '</div>' +
+            '  <div style="font-size:12px; color:#C9A961; margin-top:4px; font-weight:700;">' + formatMoney(line.cost.totalAmount.amount, line.cost.totalAmount.currencyCode) + '</div>' +
             '</div>';
           var removeBtn = document.createElement('button');
           removeBtn.type = 'button';
@@ -2381,16 +2381,16 @@
         renderPreview();
       });
 
-      input.addEventListener('focus', function () { this.style.borderColor = 'rgba(255,215,0,0.45)'; });
+      input.addEventListener('focus', function () { this.style.borderColor = 'rgba(201,169,97,0.45)'; });
       input.addEventListener('blur', function () { this.style.borderColor = 'rgba(255,255,255,0.1)'; });
 
       // Bold toggle
       window.toggleBold = function () {
         isBold = !isBold;
         var btn = document.getElementById('hp-bold-toggle');
-        btn.style.background = isBold ? 'rgba(255,215,0,0.1)' : 'transparent';
-        btn.style.borderColor = isBold ? 'rgba(255,215,0,0.5)' : 'rgba(255,255,255,0.12)';
-        btn.style.color = isBold ? '#FFD700' : '#555';
+        btn.style.background = isBold ? 'rgba(201,169,97,0.1)' : 'transparent';
+        btn.style.borderColor = isBold ? 'rgba(201,169,97,0.5)' : 'rgba(255,255,255,0.12)';
+        btn.style.color = isBold ? '#C9A961' : '#555';
         renderPreview();
       };
 
@@ -2682,7 +2682,7 @@
       <p id="cart-subtotal" style="color:#e5e5e5; font-weight:700; font-size:15px; margin-bottom:14px;"></p>
       <button type="button" onclick="window.goToCartCheckout()"
         class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-[14px] rounded-full w-full"
-        style="background:#FFD700; color:#0d0d0d; font-weight:800; letter-spacing:0.5px; cursor:pointer; border:none;">
+        style="background:#C9A961; color:#0d0d0d; font-weight:800; letter-spacing:0.5px; cursor:pointer; border:none;">
         Checkout
       </button>
     </div>
