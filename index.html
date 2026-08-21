@@ -1021,13 +1021,11 @@
       style="height:1px; background:linear-gradient(to right, transparent 0%, rgba(255,215,0,0.5) 25%, rgba(255,215,0,0.5) 75%, transparent 100%);">
     </div>
 
-    <!-- ── Cinematic 3D scene (backdrop for the whole hero, text + customiser included) ── -->
+    <!-- ── Calm static backdrop (formerly an animated 3D scene; replaced for a quieter, editorial feel) ── -->
     <div class="absolute inset-0" id="hero-3d-wrap">
-      <canvas id="hero-3d-canvas" class="absolute inset-0 w-full h-full" style="display:block;"></canvas>
-
-      <!-- Fallback gradient shown until/unless WebGL scene mounts -->
       <div class="absolute inset-0 pointer-events-none" id="hero-3d-fallback"
-        style="background:radial-gradient(ellipse 90% 70% at 50% 40%, rgba(40,28,0,0.9) 0%, #050505 70%);"></div>
+        style="background:radial-gradient(ellipse 80% 60% at 50% 32%, rgba(28,24,17,0.6) 0%, #070706 55%, #030302 100%);">
+      </div>
     </div>
 
     <!-- Overlay content — fills the space above the customiser panel -->
