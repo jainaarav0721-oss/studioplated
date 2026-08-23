@@ -493,6 +493,20 @@
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(201, 169, 97, 0.2);
     }
 
+    /* ── Instant press feedback: respond on press, not on release ── */
+    button,
+    .btn-wa,
+    #hero-customise-btn {
+      transition: transform 0.1s ease-out, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    button:active,
+    .btn-wa:active,
+    #hero-customise-btn:active {
+      transform: scale(0.97);
+      transition: transform 0.1s ease-out;
+    }
+
     /* ── Gold gradient text ── */
     .text-gold {
       background: linear-gradient(135deg, #C9A961 0%, #8C6D3F 100%);
@@ -1013,12 +1027,8 @@
       z-index: 90;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-
-    #cart-overlay.cart-panel-open {
-      opacity: 1;
-      pointer-events: auto;
+      /* opacity is driven per-frame in lockstep with the panel's drag/spring position (see JS);
+         a CSS transition here would double-animate against that */
     }
 
     #cart-panel {
@@ -1031,13 +1041,19 @@
       border-left: 1px solid rgba(255, 255, 255, 0.08);
       z-index: 91;
       transform: translateX(100%);
-      transition: transform 0.3s ease;
+      /* transform is driven per-frame by a spring in JS once opened; no CSS transition here,
+         a gesture-interruptible spring and a fixed-duration CSS transition would fight each other */
       display: flex;
       flex-direction: column;
     }
 
-    #cart-panel.cart-panel-open {
-      transform: translateX(0);
+    #cart-drag-handle {
+      cursor: grab;
+      touch-action: none;
+    }
+
+    #cart-drag-handle:active {
+      cursor: grabbing;
     }
   </style>
 </head>
@@ -2343,23 +2359,163 @@
           });
       };
 
-      // ── Cart panel open/close ──
-      function cartOverlayEl() { return document.getElementById('cart-overlay'); }
-      window.openCartPanel = function () {
+      // ── Cart panel: spring-driven, interruptible, drag-to-dismiss ──
+      // (Apple "Designing Fluid Interfaces" principles: animate from the live presentation
+      // value, hand off gesture velocity into the spring, rubber-band at the open boundary,
+      // never fight a gesture with a fixed-duration CSS transition.)
+      var cartReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var cartOverlay;
+      var cartPanelWidth = 400;
+      var cartCurrentX = null; // px: 0 = fully open, cartPanelWidth = fully closed
+      var cartVelocityX = 0;
+      var cartRafId = null;
+      var cartIsOpen = false;
+      var cartIsDragging = false;
+      var cartDragStartX = 0, cartDragStartTranslate = 0;
+      var cartDragHistory = [];
+
+      function cartEls() {
         if (!cartPanel) cartPanel = document.getElementById('cart-panel');
-        if (cartPanel) cartPanel.classList.add('cart-panel-open');
-        var ov = cartOverlayEl(); if (ov) ov.classList.add('cart-panel-open');
+        if (!cartOverlay) cartOverlay = document.getElementById('cart-overlay');
+      }
+
+      function cartMeasureWidth() {
+        if (cartPanel) cartPanelWidth = cartPanel.getBoundingClientRect().width || cartPanelWidth;
+      }
+
+      function cartRender(x) {
+        cartCurrentX = x;
+        if (cartPanel) cartPanel.style.transform = 'translateX(' + x + 'px)';
+        if (cartOverlay) {
+          var progress = 1 - Math.min(Math.max(x / cartPanelWidth, 0), 1);
+          cartOverlay.style.opacity = progress;
+          cartOverlay.style.pointerEvents = progress > 0.02 ? 'auto' : 'none';
+        }
+      }
+
+      function cartCancelSpring() {
+        if (cartRafId) { cancelAnimationFrame(cartRafId); cartRafId = null; }
+      }
+
+      function cartSpringTo(target, initialVelocity, onDone) {
+        cartCancelSpring();
+        var stiffness = 340;
+        var damping = 32; // just under critical (2*sqrt(340)~37) for a natural, non-bouncy settle
+        var mass = 1;
+        var value = cartCurrentX == null ? cartPanelWidth : cartCurrentX;
+        var v = initialVelocity || 0;
+        var lastTime = null;
+
+        function step(now) {
+          if (lastTime == null) lastTime = now;
+          var dt = Math.min((now - lastTime) / 1000, 0.032);
+          lastTime = now;
+
+          var springForce = -stiffness * (value - target);
+          var dampingForce = -damping * v;
+          v += (springForce + dampingForce) / mass * dt;
+          value += v * dt;
+
+          cartRender(value);
+
+          if (Math.abs(value - target) < 0.5 && Math.abs(v) < 20) {
+            cartRender(target);
+            cartRafId = null;
+            if (onDone) onDone();
+            return;
+          }
+          cartRafId = requestAnimationFrame(step);
+        }
+        cartRafId = requestAnimationFrame(step);
+      }
+
+      function cartRubberband(overshoot, dimension, constant) {
+        constant = constant || 0.55;
+        return (overshoot * dimension * constant) / (dimension + constant * Math.abs(overshoot));
+      }
+
+      function cartProject(v, decel) {
+        decel = decel || 0.998;
+        return (v / 1000) * decel / (1 - decel);
+      }
+
+      window.openCartPanel = function () {
+        cartEls(); cartMeasureWidth();
+        cartIsOpen = true;
+        if (cartOverlay) cartOverlay.style.pointerEvents = 'auto';
+        if (cartReduceMotion) { cartRender(0); return; }
+        cartSpringTo(0, cartVelocityX || 0);
       };
       window.closeCartPanel = function () {
-        if (!cartPanel) cartPanel = document.getElementById('cart-panel');
-        if (cartPanel) cartPanel.classList.remove('cart-panel-open');
-        var ov = cartOverlayEl(); if (ov) ov.classList.remove('cart-panel-open');
+        cartEls(); cartMeasureWidth();
+        cartIsOpen = false;
+        if (cartReduceMotion) { cartRender(cartPanelWidth); return; }
+        cartSpringTo(cartPanelWidth, cartVelocityX || 0);
       };
       window.toggleCartPanel = function () {
-        if (!cartPanel) cartPanel = document.getElementById('cart-panel');
-        if (cartPanel) cartPanel.classList.toggle('cart-panel-open');
-        var ov = cartOverlayEl(); if (ov) ov.classList.toggle('cart-panel-open');
+        cartEls();
+        if (cartIsOpen) window.closeCartPanel(); else window.openCartPanel();
       };
+
+      function cartOnPointerDown(e) {
+        if (e.target.closest && e.target.closest('button')) return; // let the close button click through
+        cartEls(); cartMeasureWidth();
+        cartCancelSpring();
+        cartIsDragging = true;
+        cartDragStartX = e.clientX;
+        cartDragStartTranslate = cartCurrentX == null ? 0 : cartCurrentX;
+        cartDragHistory = [{ x: e.clientX, t: performance.now() }];
+        if (e.target.setPointerCapture) e.target.setPointerCapture(e.pointerId);
+      }
+
+      function cartOnPointerMove(e) {
+        if (!cartIsDragging) return;
+        var delta = e.clientX - cartDragStartX;
+        var next = cartDragStartTranslate + delta;
+        if (next < 0) next = -cartRubberband(-next, cartPanelWidth, 0.55); // resist past fully-open
+        cartRender(next);
+        cartDragHistory.push({ x: e.clientX, t: performance.now() });
+        if (cartDragHistory.length > 5) cartDragHistory.shift();
+      }
+
+      function cartOnPointerUp() {
+        if (!cartIsDragging) return;
+        cartIsDragging = false;
+
+        var v = 0;
+        if (cartDragHistory.length >= 2) {
+          var a = cartDragHistory[0], b = cartDragHistory[cartDragHistory.length - 1];
+          var dt = (b.t - a.t) / 1000;
+          if (dt > 0) v = (b.x - a.x) / dt; // px/s
+        }
+        cartVelocityX = v;
+
+        var projected = cartCurrentX + cartProject(v);
+        var target = Math.abs(projected - 0) < Math.abs(projected - cartPanelWidth) ? 0 : cartPanelWidth;
+        if (v > 500) target = cartPanelWidth; // a decisive fast swipe wins even before travelling far
+        if (v < -500) target = 0;
+
+        cartIsOpen = target === 0;
+        cartSpringTo(target, v);
+      }
+
+      (function attachCartDrag() {
+        function bind() {
+          var handle = document.getElementById('cart-drag-handle');
+          if (!handle) return;
+          handle.addEventListener('pointerdown', cartOnPointerDown);
+          handle.addEventListener('pointermove', cartOnPointerMove);
+          handle.addEventListener('pointerup', cartOnPointerUp);
+          handle.addEventListener('pointercancel', cartOnPointerUp);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', bind);
+        } else {
+          bind();
+        }
+      })();
+
+      window.addEventListener('resize', cartMeasureWidth);
       window.goToCartCheckout = function () {
         if (latestCart && latestCart.checkoutUrl) {
           window.location.href = latestCart.checkoutUrl;
@@ -2673,7 +2829,7 @@
   <!-- ═══════════════════════════════════ CART PANEL ═══════════════════════════════════ -->
   <div id="cart-overlay" onclick="window.closeCartPanel()"></div>
   <div id="cart-panel">
-    <div class="flex items-center justify-between"
+    <div id="cart-drag-handle" class="flex items-center justify-between"
       style="padding:20px; border-bottom:1px solid rgba(255,255,255,0.08);">
       <h3 style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; color:#fff;">Your Cart</h3>
       <button type="button" onclick="window.closeCartPanel()" aria-label="Close cart"
