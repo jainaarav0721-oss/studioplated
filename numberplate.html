@@ -467,6 +467,43 @@
       #hero-3d-fallback::after {
         animation: none;
       }
+
+      .ember {
+        display: none;
+      }
+    }
+
+    /* ── Floating embers: slow rising light particles for a living, premium hero ── */
+    .ember {
+      position: absolute;
+      bottom: 6%;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      animation-name: ember-rise;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-fill-mode: backwards;
+    }
+
+    @keyframes ember-rise {
+      0% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+
+      12% {
+        opacity: 1;
+      }
+
+      85% {
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translate(var(--ember-drift, 24px), var(--ember-rise, -420px));
+        opacity: 0;
+      }
     }
 
     /* ── Order button ── */
@@ -1106,6 +1143,24 @@
       <div class="absolute inset-0 pointer-events-none" id="hero-3d-fallback"
         style="background:radial-gradient(ellipse 70% 55% at 50% 18%, rgba(161,58,68,0.07) 0%, transparent 62%), linear-gradient(160deg, #100d09 0%, #070605 55%, #030201 100%);">
       </div>
+
+      <!-- Floating embers -->
+      <span class="ember" aria-hidden="true"
+        style="left:8%; width:4px; height:4px; background:#C1505C; box-shadow:0 0 8px 2px rgba(193,80,92,0.6); animation-duration:14s; animation-delay:0s; --ember-rise:-360px; --ember-drift:18px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:18%; width:3px; height:3px; background:#EDE6D6; box-shadow:0 0 6px 2px rgba(237,230,214,0.5); animation-duration:18s; animation-delay:2.5s; --ember-rise:-420px; --ember-drift:-24px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:32%; width:5px; height:5px; background:#A13A44; box-shadow:0 0 10px 3px rgba(161,58,68,0.55); animation-duration:16s; animation-delay:6s; --ember-rise:-380px; --ember-drift:30px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:48%; width:3px; height:3px; background:#EDE6D6; box-shadow:0 0 7px 2px rgba(237,230,214,0.5); animation-duration:20s; animation-delay:1s; --ember-rise:-440px; --ember-drift:-16px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:62%; width:4px; height:4px; background:#C1505C; box-shadow:0 0 9px 2px rgba(193,80,92,0.55); animation-duration:15s; animation-delay:8s; --ember-rise:-370px; --ember-drift:-28px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:74%; width:3px; height:3px; background:#EDE6D6; box-shadow:0 0 6px 2px rgba(237,230,214,0.45); animation-duration:19s; animation-delay:4s; --ember-rise:-410px; --ember-drift:22px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:86%; width:5px; height:5px; background:#A13A44; box-shadow:0 0 10px 3px rgba(161,58,68,0.5); animation-duration:17s; animation-delay:10s; --ember-rise:-390px; --ember-drift:-20px;"></span>
+      <span class="ember" aria-hidden="true"
+        style="left:93%; width:3px; height:3px; background:#C1505C; box-shadow:0 0 7px 2px rgba(193,80,92,0.5); animation-duration:13s; animation-delay:5.5s; --ember-rise:-350px; --ember-drift:14px;"></span>
     </div>
 
     <!-- Overlay content — fills the space above the customiser panel -->
