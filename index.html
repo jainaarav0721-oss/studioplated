@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <meta name="description"
-    content="Order personalised number plates for your bedroom, studio, or man cave. Starting ₹990. Any text, any style. Order and pay securely online." />
+    content="Order personalised number plates for your bedroom, studio, or man cave. Starting ₹1399. Any text, any style. Order and pay securely online." />
 
   <!-- Meta Pixel Code -->
   <script>
@@ -1150,7 +1150,7 @@
           <button id="hp-checkout-btn" type="button" onclick="window.addToCart()"
             class="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-[14px] rounded-full w-full sm:w-auto"
             style="background:#FFD700; color:#0d0d0d; font-weight:800; letter-spacing:0.5px; cursor:pointer; border:none; transition:all 0.2s ease;">
-            Add to Cart · ₹990
+            Add to Cart · ₹1399
           </button>
           <button type="button" onclick="window.openCartPanel()"
             class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[14px] rounded-full w-full sm:w-auto"
@@ -1397,8 +1397,8 @@
             checkout, right here on the page. Cards, UPI, netbanking, all supported. No waiting on a payment link.</p>
           <div class="flex flex-wrap gap-2">
             <span
-              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">₹990
-              Flat</span>
+              style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,215,0,0.2); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#FFD700;">From
+              ₹1399</span>
             <span
               style="padding:6px 14px; border-radius:99px; border:1px solid rgba(255,255,255,0.08); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#333;">Cards
               · UPI · Netbanking</span>
@@ -1432,7 +1432,7 @@
                 FERRARI</div>
             </div>
             <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:6px;">
-              <span>Custom Plate · White</span><span>₹990</span>
+              <span>Custom Plate · White</span><span>₹1399</span>
             </div>
             <div
               style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.06);">
@@ -1440,7 +1440,7 @@
             </div>
             <div
               style="background:#FFD700; color:#0d0d0d; text-align:center; border-radius:8px; padding:10px; font-size:13px; font-weight:800; letter-spacing:1px;">
-              Pay ₹990 →</div>
+              Pay ₹1399 →</div>
             <div
               style="display:flex; align-items:center; justify-content:center; gap:5px; font-size:9px; color:#555; margin-top:10px;">
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5"
@@ -1579,8 +1579,11 @@
         <div class="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
           <h3 class="font-bold text-gray-900 text-lg mb-1">Custom Plate</h3>
           <p class="text-gray-400 text-sm mb-6">Any text, any style</p>
-          <div class="text-4xl font-black text-gray-900 mb-1">₹990</div>
-          <p class="text-gray-400 text-sm mb-8">Shipping calculated at checkout</p>
+          <div class="mb-1"><span class="text-4xl font-black text-gray-900">₹1399</span><span
+              class="text-gray-400 text-sm font-semibold ml-2">White</span></div>
+          <div class="mb-1"><span class="text-4xl font-black text-gray-900">₹1899</span><span
+              class="text-gray-400 text-sm font-semibold ml-2">Colour</span></div>
+          <p class="text-gray-400 text-sm mb-8 mt-2">Shipping calculated at checkout</p>
           <ul class="space-y-3 text-sm text-gray-600">
             <li class="flex items-center gap-2.5"><span
                 class="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
@@ -1870,7 +1873,7 @@
         class="text-white mb-4">
         Ready to Make<br /><span class="text-gold">Your Plate?</span>
       </h2>
-      <p class="text-gray-500 text-lg mb-10 font-bold">Starting at just ₹990. Takes 2 minutes to order.
+      <p class="text-gray-500 text-lg mb-10 font-bold">Starting at just ₹1399. Takes 2 minutes to order.
         Delivered in
         days.</p>
       <a href="#order" class="btn-wa px-10 py-4 text-[17px]">
@@ -2042,6 +2045,8 @@
 
       function getStyle(id) { return PLATE_STYLES.filter(function (x) { return x.id === id; })[0]; }
 
+      function getPrice(id) { return id === 'white' ? 1399 : 1899; }
+
       function sanitizeText(t) {
         return t.toUpperCase().replace(/[#\-:]/g, '').slice(0, 12);
       }
@@ -2079,6 +2084,9 @@
         var len = currentText.length;
         ptEl.style.fontSize = (len <= 6 ? 34 : len <= 9 ? 27 : 21) + 'px';
         ptEl.style.fontWeight = fw;
+
+        var checkoutBtn = document.getElementById('hp-checkout-btn');
+        if (checkoutBtn) checkoutBtn.textContent = 'Add to Cart · ₹' + getPrice(currentStyle);
       }
 
       // ── Shopify cart, carrying the customer's plate text/style/bold as cart line attributes ──
@@ -2088,7 +2096,8 @@
       // checking out once, instead of being sent to checkout after every single add.
       var SHOPIFY_STOREFRONT_ENDPOINT = 'https://w1i5ea-x5.myshopify.com/api/2024-01/graphql.json';
       var SHOPIFY_STOREFRONT_TOKEN = '1117c51e829b95de96d89cfdba76fde9';
-      var SHOPIFY_VARIANT_ID = 'gid://shopify/ProductVariant/48332264210650';
+      var SHOPIFY_VARIANT_WHITE = 'gid://shopify/ProductVariant/48332264210650';
+      var SHOPIFY_VARIANT_COLOR = 'gid://shopify/ProductVariant/48525723009242';
       var CART_ID_STORAGE_KEY = 'sp_cart_id';
 
       var CART_FIELDS =
@@ -2245,7 +2254,7 @@
         var styleName = s ? s.label : 'White';
         var plateText = currentText || 'FERRARI';
         var lineInput = {
-          merchandiseId: SHOPIFY_VARIANT_ID,
+          merchandiseId: currentStyle === 'white' ? SHOPIFY_VARIANT_WHITE : SHOPIFY_VARIANT_COLOR,
           quantity: 1,
           attributes: [
             { key: 'Plate Text', value: plateText },
