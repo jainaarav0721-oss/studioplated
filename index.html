@@ -1581,7 +1581,7 @@
           <p class="text-gray-400 text-sm mb-6">Any text, any style</p>
           <div class="mb-1"><span class="text-4xl font-black text-gray-900">₹1399</span><span
               class="text-gray-400 text-sm font-semibold ml-2">White</span></div>
-          <div class="mb-1"><span class="text-4xl font-black text-gray-900">₹1899</span><span
+          <div class="mb-1"><span class="text-4xl font-black text-gray-900">₹1799</span><span
               class="text-gray-400 text-sm font-semibold ml-2">Colour</span></div>
           <p class="text-gray-400 text-sm mb-8 mt-2">Shipping calculated at checkout</p>
           <ul class="space-y-3 text-sm text-gray-600">
@@ -2045,7 +2045,7 @@
 
       function getStyle(id) { return PLATE_STYLES.filter(function (x) { return x.id === id; })[0]; }
 
-      function getPrice(id) { return id === 'white' ? 1399 : 1899; }
+      function getPrice(id) { return id === 'white' ? 1399 : 1799; }
 
       function sanitizeText(t) {
         return t.toUpperCase().replace(/[#\-:]/g, '').slice(0, 12);
