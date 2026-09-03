@@ -2023,7 +2023,13 @@
       function getPrice(id) { return id === 'white' ? 1399 : 1799; }
 
       function sanitizeText(t) {
-        return t.toUpperCase().replace(/[#\-:]/g, '').slice(0, 12);
+        return t
+          .replace(/\p{Extended_Pictographic}/gu, '')
+          .replace(/[\u{1F1E6}-\u{1F1FF}]/gu, '')
+          .replace(/[\u200D\uFE0F]/gu, '')
+          .toUpperCase()
+          .replace(/[#\-:_]/g, '')
+          .slice(0, 12);
       }
 
       function setText(t) {
