@@ -2062,8 +2062,7 @@
         var fw = isBold ? '900' : '700';
 
         ptEl.textContent = txt;
-        var len = currentText.length;
-        ptEl.style.fontSize = (len <= 6 ? 34 : len <= 9 ? 27 : 21) + 'px';
+        ptEl.style.fontSize = '21px';
         ptEl.style.fontWeight = fw;
 
         var checkoutBtn = document.getElementById('hp-checkout-btn');
