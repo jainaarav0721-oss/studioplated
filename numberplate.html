@@ -222,12 +222,19 @@
     #hero-tilt-target {
       transform: rotateX(var(--ry, 0deg)) rotateY(var(--rx, 0deg));
       transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+      width: 88%;
+    }
+
+    #hp-plate-wrap {
+      width: 100%;
     }
 
     /* ── Hero plate shine sweep ── */
     #hp-plate {
       position: relative;
       overflow: hidden;
+      width: 100%;
+      justify-content: center;
     }
 
     #hp-plate::before {
@@ -1873,6 +1880,8 @@
           <a href="refund-policy.html" class="hover:text-gray-300 transition-colors">Refund &amp; Cancellation</a>
           <a href="shipping-policy.html" class="hover:text-gray-300 transition-colors">Shipping Policy</a>
         </nav>
+        <a href="mailto:support@studioplated.in" class="text-xs text-gray-500 hover:text-gray-300 transition-colors">
+          support@studioplated.in</a>
       </div>
       <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4 border-t border-white/[0.05]">
         <p class="text-gray-600 text-sm">© 2025 StudioPlated. Custom number plates for room décor. Made in India
