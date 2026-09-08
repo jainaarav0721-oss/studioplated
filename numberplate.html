@@ -2204,6 +2204,14 @@
               cartCountBadge.style.transform = 'scale(1.35)';
               setTimeout(function () { cartCountBadge.style.transform = 'scale(1)'; }, 220);
             }
+            if (typeof fbq === 'function') {
+              fbq('track', 'AddToCart', {
+                content_name: 'Custom Number Plate',
+                content_category: styleName,
+                value: getPrice(currentStyle),
+                currency: 'INR',
+              });
+            }
           }
         }
 
@@ -2428,6 +2436,13 @@
       window.addEventListener('resize', cartMeasureWidth);
       window.goToCartCheckout = function () {
         if (latestCart && latestCart.checkoutUrl) {
+          if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout', {
+              value: latestCart.cost && latestCart.cost.totalAmount ? Number(latestCart.cost.totalAmount.amount) : undefined,
+              currency: latestCart.cost && latestCart.cost.totalAmount ? latestCart.cost.totalAmount.currencyCode : 'INR',
+              num_items: latestCart.totalQuantity,
+            });
+          }
           window.location.href = latestCart.checkoutUrl;
         }
       };
