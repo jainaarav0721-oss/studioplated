@@ -2163,6 +2163,33 @@
         if (cartSubtotalEl) {
           cartSubtotalEl.textContent = 'Subtotal: ' + formatMoney(cart.cost.totalAmount.amount, cart.cost.totalAmount.currencyCode);
         }
+
+        var nudgeEl = document.getElementById('cart-promo-nudge');
+        if (nudgeEl) {
+          var remainder = qty % 4;
+          var freeCount = Math.floor(qty / 4);
+          var progressPct = (remainder / 4) * 100;
+          var html;
+          if (remainder === 0) {
+            html =
+              '<div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.35); border-radius:12px; padding:16px;">' +
+              '  <p style="color:#FFD700; font-weight:800; font-size:13px; letter-spacing:0.3px;">You\'ve unlocked ' + freeCount + ' free plate' + (freeCount > 1 ? 's' : '') + '!</p>' +
+              '  <p style="color:#999; font-size:12px; margin-top:4px;">Add one more to start unlocking your next free plate.</p>' +
+              '</div>';
+          } else {
+            var remaining = 4 - remainder;
+            html =
+              '<div style="background:rgba(255,215,0,0.08); border:1px solid rgba(255,215,0,0.35); border-radius:12px; padding:16px;">' +
+              '  <p style="color:#fff; font-weight:800; font-size:13px; letter-spacing:0.3px;">Add ' + remaining + ' more to get 1 FREE!</p>' +
+              '  <div style="background:rgba(255,255,255,0.1); border-radius:99px; height:6px; margin-top:10px; overflow:hidden;">' +
+              '    <div style="background:#FFD700; height:100%; width:' + progressPct + '%; border-radius:99px; transition:width 0.3s ease;"></div>' +
+              '  </div>' +
+              '  <p style="color:#999; font-size:11px; margin-top:8px;">Buy 4, cheapest one\'s on us.</p>' +
+              '</div>';
+          }
+          nudgeEl.innerHTML = html;
+          nudgeEl.style.display = 'block';
+        }
       }
 
       function removeCartLine(lineId) {
@@ -2505,6 +2532,7 @@
       <p id="cart-empty" style="color:#666; font-size:13px; padding:24px 0;">Your cart is empty. Customise a plate
         above and hit Add to Cart.</p>
       <div id="cart-items"></div>
+      <div id="cart-promo-nudge" style="display:none; margin-top:18px;"></div>
     </div>
     <div style="padding:20px; border-top:1px solid rgba(255,255,255,0.08);">
       <p id="cart-subtotal" style="color:#e5e5e5; font-weight:700; font-size:15px; margin-bottom:14px;"></p>
@@ -2515,6 +2543,21 @@
       </button>
     </div>
   </div>
+
+  <!-- ═══════════════════════════════════ FLOATING CONTACT BUBBLE ═══════════════════════════════════ -->
+  <a href="mailto:support@studioplated.in?subject=Question%20about%20StudioPlated" aria-label="Email us a question"
+    class="group"
+    style="position:fixed; right:20px; bottom:20px; z-index:80; display:inline-flex; align-items:center; gap:10px; background:#FFD700; color:#0d0d0d; border-radius:99px; padding:14px; box-shadow:0 8px 26px rgba(255,215,0,0.35), 0 3px 10px rgba(0,0,0,0.45); transition:transform 0.2s ease, box-shadow 0.2s ease;"
+    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 14px 36px rgba(255,215,0,0.45), 0 4px 14px rgba(0,0,0,0.5)';"
+    onmouseout="this.style.transform='none'; this.style.boxShadow='0 8px 26px rgba(255,215,0,0.35), 0 3px 10px rgba(0,0,0,0.45)';">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d0d0d" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="4" width="20" height="16" rx="2" />
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+    <span class="hidden sm:inline" style="font-weight:800; font-size:13px; letter-spacing:0.3px; padding-right:2px;">Have
+      a question?</span>
+  </a>
 
   <script>
     // ── Hero animated gradient background (ported from AnimatedGradient, Aurora preset recoloured gold, no UI chrome) ──
