@@ -2066,6 +2066,7 @@
         '       id quantity' +
         '       attributes { key value }' +
         '       cost { totalAmount { amount currencyCode } }' +
+        '       merchandise { ... on ProductVariant { id } }' +
         '     }' +
         '   }' +
         ' }';
@@ -2081,7 +2082,7 @@
         '}';
       var CART_QUERY = 'query cartQuery($cartId: ID!) { cart(id: $cartId) {' + CART_FIELDS + '} }';
 
-      var latestCart = null; // { id, checkoutUrl, totalQuantity, cost, lines: [{id, quantity, attributes, cost}] }
+      var latestCart = null; // { id, checkoutUrl, totalQuantity, cost, lines: [{id, quantity, attributes, cost, merchandise}] }
 
       function shopifyGraphQL(query, variables) {
         return fetch(SHOPIFY_STOREFRONT_ENDPOINT, {
@@ -2461,17 +2462,50 @@
       })();
 
       window.addEventListener('resize', cartMeasureWidth);
+
+      // ── Route checkout through the Shopify theme cart, not the Storefront checkoutUrl ──
+      // COD King's OTP/partial-payment step is a theme app embed: it only runs on Online
+      // Store pages (/, /cart, product pages), never on /cart/c/... or /checkouts/..., which
+      // is where latestCart.checkoutUrl leads. Sending customers straight to checkoutUrl
+      // skips COD King entirely, so instead we add these lines to the theme's own cart and
+      // land the customer on the theme's /cart page, where clicking Check out there is what
+      // actually triggers COD King before Shopify checkout.
+      var THEME_SHOP_ORIGIN = 'https://studio-plated.myshopify.com';
+
+      function variantNumericId(gid) {
+        return String(gid || '').split('/').pop();
+      }
+
+      function buildThemeCartAddQuery(lines) {
+        var parts = [];
+        lines.forEach(function (line, i) {
+          var id = variantNumericId(line.merchandise && line.merchandise.id);
+          parts.push(encodeURIComponent('items[' + i + '][id]') + '=' + encodeURIComponent(id));
+          parts.push(encodeURIComponent('items[' + i + '][quantity]') + '=' + encodeURIComponent(line.quantity));
+          (line.attributes || []).forEach(function (a) {
+            parts.push(encodeURIComponent('items[' + i + '][properties][' + a.key + ']') + '=' + encodeURIComponent(a.value));
+          });
+        });
+        parts.push('return_to=' + encodeURIComponent('/cart'));
+        return parts.join('&');
+      }
+
       window.goToCartCheckout = function () {
-        if (latestCart && latestCart.checkoutUrl) {
-          if (typeof fbq === 'function') {
-            fbq('track', 'InitiateCheckout', {
-              value: latestCart.cost && latestCart.cost.totalAmount ? Number(latestCart.cost.totalAmount.amount) : undefined,
-              currency: latestCart.cost && latestCart.cost.totalAmount ? latestCart.cost.totalAmount.currencyCode : 'INR',
-              num_items: latestCart.totalQuantity,
-            });
-          }
-          window.location.href = latestCart.checkoutUrl;
+        if (!latestCart || !latestCart.lines || !latestCart.lines.length) return;
+
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout', {
+            value: latestCart.cost && latestCart.cost.totalAmount ? Number(latestCart.cost.totalAmount.amount) : undefined,
+            currency: latestCart.cost && latestCart.cost.totalAmount ? latestCart.cost.totalAmount.currencyCode : 'INR',
+            num_items: latestCart.totalQuantity,
+          });
         }
+
+        // Clear the theme's own cart first (it's a separate cart from the Storefront API one
+        // used for the on-site drawer, so old leftover items there wouldn't otherwise clear),
+        // then redirect straight into adding this cart's lines, landing on /cart.
+        var addPath = '/cart/add?' + buildThemeCartAddQuery(latestCart.lines);
+        window.location.href = THEME_SHOP_ORIGIN + '/cart/clear?return_to=' + encodeURIComponent(addPath);
       };
 
       // Hydrate cart from a previous visit, if any
